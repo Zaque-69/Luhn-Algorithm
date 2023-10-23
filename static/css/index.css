@@ -1,0 +1,45 @@
+@font-face{
+    font-family : PFont;
+    src : url(W95FA/w95fa.woff);
+}
+body{
+    margin : 0;
+    background-color : #247092;
+    ursor: url(assets/default.cur), default;
+}
+.display-flex-align-items-center-justify-content-center{
+    display : flex; 
+    align-items : center;
+    justify-content : center;
+}
+.display-flex-align-items-center{
+    display : flex; 
+    align-items : center;
+}
+.display-flex{
+    display : flex; 
+}
+.w-100{
+    width : 100%;
+}
+.w-50{
+    width : 50%;
+}
+.h-100{
+    height : 100%;
+}
+.paddingApps{
+    padding : .3rem;
+}
+.gapApps{
+    gap : .5rem;
+}
+.desktopApp{
+    position : absolute;
+    height : 60px; 
+    width : 60px;
+}
+.blockApp{
+    height : 70px; 
+    width : 70px; 
+}
