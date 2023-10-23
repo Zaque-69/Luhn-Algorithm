@@ -1,0 +1,14 @@
+{
+    "terminal" : {
+        "width" : 25,
+        "height" : 15,
+        "backgroundColor" : "black",
+        "content" : "" 
+    },
+    "warning" : {
+        "width" : 20,
+        "height" : 10,
+        "backgroundColor" : "gray",
+        "content" : "" 
+    }
+}
