@@ -1,10 +1,19 @@
 @font-face{
     font-family : PFont;
-    src : url(W95FA/w95fa.woff);
+    src : url('./W95FA/w95fa.woff');
 }
+
+span{
+    padding : .2rem;
+    text-align : center;
+}
+*{
+    font-family : PFont;
+}
+
 body{
     margin : 0;
-    background-color : #247092;
+    background-color : #3C7B7F;
     ursor: url(assets/default.cur), default;
 }
 .display-flex-align-items-center-justify-content-center{
