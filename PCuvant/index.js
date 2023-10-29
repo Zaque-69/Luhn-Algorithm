@@ -1,5 +1,4 @@
-document.querySelector('body').style.height = window.innerHeight + 'px';
-
+document.querySelector('body').style.height = window.innerHeight + 'px' ;
 
 var finalWord = "";
 const h2s = document.querySelector('h2');
@@ -7,9 +6,10 @@ var wh1 = document.querySelector(".wordh1");
 
 var lev1 = '{"lets": ["T", "U", "R", "N"], "answers": ["TU", "TUN", "UNT", "TURN"]}';
 var lev2 = '{"lets": ["D", "U", "E", "L"], "answers": ["EU", "UD", "LED", "DUEL"]}';
-var lev3 = '{"lets": ["D", "O", "A", "R"], "answers": ["RAC", "DAR", "CARO", "DOAR"]}';
+//var lev3 = '{"lets": ["D", "O", "A", "R"], "answers": [ "DAR", "CARO", "DOAR"]}';
 
-var myArray = [lev1, lev2, lev3];
+var myArray = [lev1, lev2];
+
 
 function returnJSON(){
     var randomNumber = Math.floor(Math.random()*myArray.length)
@@ -69,9 +69,9 @@ function addletter(key){
     keyVar.style.background = "#c4a516";
     keyVar.disabled = true;
 }
-var count = 0; var checkValues = true;
+var count = 0; var checkValues = 0;
 document.getElementById("submit").addEventListener("click", function(){
-    
+
     boolWord = false;
     for (var i = 0; i < duelAnswers.length; i++){
         if (duelAnswers[i] == finalWord) {
@@ -90,12 +90,17 @@ document.getElementById("submit").addEventListener("click", function(){
         document.querySelector(".word" + copyI).innerHTML = duelAnswers[copyI];
         h2s.innerHTML = "Cuvânt valid !";
         h2s.style.color = "green"; count++;
-        
-        document.querySelectorAll('.word').forEach((e) =>{
-            if (e.value == "" || e.value == " ") checkValues = false;
+        checkValues = 0;
+        document.querySelectorAll('span').forEach((e) =>{
+            checkValues++; 
         })
-        if(count == 4 && checkValues) {
-            document.getElementById('danNegro').style.display = 'block';
+        if(count >= 4 && checkValues == 0) {
+            setTimeout(() => document.getElementById('danNegro').style.display = 'block', 1000); 
+            setTimeout(() => document.querySelectorAll('.dntn').forEach((e) =>{ e.style.display = 'block' }), 2000);
+            setTimeout(() => document.querySelector('.mc').style.display = 'block', 3000); 
+            setTimeout(() => document.getElementById('danNegroface').style.display = 'block', 4000);
+            count = 0; checkValues = 0;
+
         }
     }
     else {
