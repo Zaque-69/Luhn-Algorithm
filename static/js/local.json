@@ -3,12 +3,24 @@
         "width" : 25,
         "height" : 15,
         "backgroundColor" : "black",
-        "content" : "" 
+        "content" : "<div class = 'w-100 display-flex-align-items-center' style = 'justify-content : right; padding-right : .33rem'></div></div><div class = 'w-100' style = 'padding : .33rem;'><span style = 'color : white; padding : .33rem;'>~</span><input id = 'terminalInput' style = '; outline : none; width : 90%; height : 1rem; border : none; background-color : black;'>" 
     },
-    "warning" : {
-        "width" : 20,
-        "height" : 10,
-        "backgroundColor" : "gray",
-        "content" : "" 
+    "copilasii" : {
+        "width" : 25,
+        "height" : 15,
+        "backgroundColor" : "#D4D3D2",
+        "content" : "<iframe class = 'h-100 w-100' src='https://www.youtube.com/embed/NoTFUytUKWg' frameborder='0' allowfullscreen></iframe>" 
+    },
+    "pcuvant" : {
+        "width" : 30,
+        "height" : 37.5,
+        "backgroundColor" : "",
+        "content" : "<iframe class = 'w-100' style = 'height : 96%;' src = 'PCuvant/index.html'></iframe>" 
+    },
+    "gta6" : {
+        "width" : 30,
+        "height" : 40,
+        "backgroundColor" : "",
+        "content" : "<img class = 'w-100 h-100' src = 'assets/gta6loading.jpg'>" 
     }
 }
