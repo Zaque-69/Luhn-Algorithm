@@ -6,7 +6,6 @@
 *{
     font-family : PFont;
     transition : .15s;
-    border : 1px solid red;
 }
 body{
     margin : 0;
@@ -18,9 +17,8 @@ body{
     align-items : center;
 }
 button{ 
-
     background-color: #ffdc3d;
-    font-size : 3rem;
+    font-size : 2rem;
     border-radius : .2rem;
     cursor : pointer;
     border : 4px solid black;
@@ -29,7 +27,7 @@ button{
 }
 
 .word{
-    height : 4rem;
+    height : 3rem;
     gap : 1rem;
     display : flex;
     align-items : center;
@@ -55,4 +53,15 @@ h2, .wordh1{
     height : 2rem;
     background-color : #feefaa;
     border-radius : .2rem;
+}
+@keyframes rot{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.danNegroface{
+    animation : rot 1s infinite;
 }
