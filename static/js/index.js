@@ -28,8 +28,32 @@ function getRandomArbitrary(min, max) {
 }
 
 dragElement(".desktopApp");
-const apps = ['terminal', 'copilasii', 'pcuvant', 'gta6', 'bahoiImage', 'ppe',
+var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
               'GChelutzu'];
+
+var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta6.png', 
+            'copilasii.png', 'image.png', 'mm.png',]
+
+var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 
+            'copilasii', 'prima poza ever','M. M.']
+for(let j = 0; j < apps.length; j++){
+  lab = document.createElement('div'); lab.classList.add(`${apps[j]}`);
+      document.getElementById('label2').appendChild(lab);
+      document.querySelector(`.${apps[j]}`).innerHTML = `
+      <div class = 'blockApp ${apps[j]} display-flex-align-items-center-justify-content-center'>
+        <div class = 'desktopApp ${apps[j]}Desktop'>
+            <div class = 'desktopApp w-100 h-100'></div>
+        <div class="w-100 h-100 display-flex-align-items-center-justify-content-center" style = 'flex-direction: column;'>
+            <div class = 'w-100 display-flex-align-items-center-justify-content-center'>
+                <img src="assets/icons/${icons[j]}" style = 'height : 2.3rem; '>
+            </div>
+            <span class = 'w-100 display-flex-align-items-center-justify-content-center' style = 'font-size: .7rem; color : white;'>${titles[j]}</span>
+        </div>
+        </div>
+      </div>
+      `
+}
+
 for( i = 0; i < apps.length; i++){
   let j = i; 
   fetch("static/js/local.json").then(response => response.json()).then(data => {
@@ -52,7 +76,7 @@ for( i = 0; i < apps.length; i++){
           element.style.width = (getJSONelement.width) + 'rem'; 
           element.style.height = (getJSONelement.height ) + 'rem'; 
 
-          console.log(getJSONelement.height); console.log(getJSONelement.height - 1)
+          //console.log(getJSONelement.height); console.log(getJSONelement.height - 1)
 
           element.style.backgroundColor = getJSONelement.backgroundColor;
           element.style.top = (getRandomArbitrary(window.innerHeight * 0.25, window.innerHeight * 0.3)) + 'px';
