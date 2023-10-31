@@ -1,26 +1,58 @@
 {
     "terminal" : {
+        "title" : "Terminal",
         "width" : 25,
         "height" : 15,
         "backgroundColor" : "black",
-        "content" : "<div class = 'w-100 display-flex-align-items-center' style = 'justify-content : right; padding-right : .33rem'></div></div><div class = 'w-100' style = 'padding : .33rem;'><span style = 'color : white; padding : .33rem;'>~</span><input id = 'terminalInput' style = '; outline : none; width : 90%; height : 1rem; border : none; background-color : black;'>" 
+        "icon" : "terminal.png",
+        "content" : "<div class = 'w-100' style = 'display : flex;'><span style = 'color : white' class = 'daj'>~</span><textarea rows = '1' class = 'w-100' style = 'color : white; outline : none; background-color : black; '></textarea></div>" 
     },
     "copilasii" : {
+        "title" : "Copilasii mei",
         "width" : 25,
         "height" : 15,
         "backgroundColor" : "#D4D3D2",
-        "content" : "<iframe class = 'h-100 w-100' src='https://www.youtube.com/embed/NoTFUytUKWg' frameborder='0' allowfullscreen></iframe>" 
+        "icon" : "copilasii.png",
+        "content" : "<iframe class = 'w-100' style = 'height : 87%;' src='https://www.youtube.com/embed/NoTFUytUKWg' frameborder='0' allowfullscreen></iframe>" 
     },
     "pcuvant" : {
+        "title" : "Kuvinte cu Dahn Neegruø",
         "width" : 30,
         "height" : 37.5,
         "backgroundColor" : "",
-        "content" : "<iframe class = 'w-100' style = 'height : 96%;' src = 'PCuvant/index.html'></iframe>" 
+        "icon" : "pcuvant.png",
+        "content" : "<iframe style = 'height : 95%; width : 99%' src = 'PCuvant/index.html'></iframe>" 
     },
     "gta6" : {
+        "title" : "GTA 6",
         "width" : 30,
-        "height" : 40,
+        "height" : 40, 
         "backgroundColor" : "",
-        "content" : "<img class = 'w-100 h-100' src = 'assets/gta6loading.jpg'>" 
+        "icon" : "gta6.png",
+        "content" : "<img class = 'w-100' style = 'height : 95%;'src = 'assets/ciordeala.jpg'>" 
+    },
+    "bahoiImage" : {
+        "title" : "Bahoi.",
+        "width" : 20,
+        "height" : 20,
+        "backgroundColor" : "",
+        "icon" : "image.png",
+        "content" : "<img class = 'w-100' style = 'height : 90.5%;'src = 'assets/bahoi.png'>" 
+    },
+    "ppe" : {
+        "title" : "Prima poza ever",
+        "width" : 30,
+        "height" : 20,
+        "backgroundColor" : "",
+        "icon" : "image.png",
+        "content" : "<img class = 'w-100' style = 'height : 90%;'src = 'assets/ppe.png'>" 
+    },
+    "GChelutzu" : {
+        "title" : "Media memes",
+        "width" : 45,
+        "height" : 35,
+        "backgroundColor" : "",
+        "icon" : "mm.png",
+        "content" : "<iframe class = 'w-100' style = 'height : 94.5%;' src='chelutzu/index.html' frameborder='0' allowfullscreen></iframe>" 
     }
 }
