@@ -95,10 +95,11 @@ document.getElementById("submit").addEventListener("click", function(){
             checkValues++; 
         })
         if(count >= 4 && checkValues == 0) {
+            new Audio("fin.mp3").play();
             setTimeout(() => document.getElementById('danNegro').style.display = 'block', 1000); 
-            setTimeout(() => document.querySelectorAll('.dntn').forEach((e) =>{ e.style.display = 'block' }), 2000);
-            setTimeout(() => document.querySelector('.mc').style.display = 'block', 3000); 
-            setTimeout(() => document.getElementById('danNegroface').style.display = 'block', 4000);
+            setTimeout(() => document.querySelectorAll('.dntn').forEach((e) =>{ e.style.display = 'block' }), 2500);
+            setTimeout(() => document.querySelector('.mc').style.display = 'block', 4000); 
+            setTimeout(() => document.getElementById('danNegroface').style.display = 'block', 5500);
             count = 0; checkValues = 0;
 
         }
