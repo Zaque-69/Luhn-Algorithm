@@ -2,15 +2,22 @@
     font-family : PFont;
     src : url('./W95FA/w95fa.woff');
 }
-
+.daj{
+    display : flex;
+    align-items : center; 
+    justify-content : center;
+}
 span{
     padding : .2rem;
     text-align : center;
 }
 *{
     font-family : PFont;
-}
 
+}
+textarea{
+    font-size : 1rem; 
+}
 body{
     margin : 0;
     background-color : #3C7B7F;
@@ -45,10 +52,15 @@ body{
 }
 .desktopApp{
     position : absolute;
-    height : 60px; 
     width : 60px;
+}
+.desktopApp:hover{
+    cursor : pointer;
 }
 .blockApp{
     height : 70px; 
     width : 70px; 
+}
+.pastDiv{
+    padding-left : .5rem;
 }
