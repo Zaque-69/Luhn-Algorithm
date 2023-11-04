@@ -27,19 +27,32 @@ function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min ;
 }
 
+function enterTextarea(){
+    
+  document.getElementById('terminalInput').addEventListener("keypress", function(event) {
+      var prevCommand = document.createElement('div'); prevCommand.style.paddingLeft = '.33rem';
+      prevCommand.innerHTML = document.getElementById('terminalInput').value;
+      if ((event.key === "Enter") && document.getElementById('terminalInput').value != ''){ 
+        document.getElementById('pastDiv').appendChild(prevCommand);
+        document.getElementById('terminalInput').value = '';
+      }
+    });
+}
+
 dragElement(".desktopApp");
 var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
-              'GChelutzu'];
+              'GChelutzu', 'iloveyou'];
 
 var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta6.png', 
-            'copilasii.png', 'image.png', 'mm.png',]
+            'copilasii.png', 'image.png', 'mm.png', 'iloveyou.png']
 
 var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 
-            'copilasii', 'prima poza ever','M. M.']
+            'copilasii', 'prima poza ever','M. M.', 'ILOVEYOU']
 for(let j = 0; j < apps.length; j++){
   lab = document.createElement('div'); lab.classList.add(`${apps[j]}`);
       document.getElementById('label2').appendChild(lab);
       document.querySelector(`.${apps[j]}`).innerHTML = `
+      
       <div class = 'blockApp ${apps[j]} display-flex-align-items-center-justify-content-center'>
         <div class = 'desktopApp ${apps[j]}Desktop'>
             <div class = 'desktopApp w-100 h-100'></div>
@@ -58,16 +71,15 @@ for( i = 0; i < apps.length; i++){
   let j = i; 
   fetch("static/js/local.json").then(response => response.json()).then(data => {
     const apps = ['terminal', 'copilasii', 'pcuvant', 'gta6', 'bahoiImage', 'ppe',
-                  'GChelutzu']; 
+                  'GChelutzu', 'iloveyou']; 
       //document.querySelector('.' + apps[j] + 'Popup').style.display = 'none';
       document.querySelector('.' + apps[j] + 'Desktop').ondblclick = function()
         {
-         
           var element = document.createElement('div');
           element.classList.add('desktopApp', `${apps[j]}Popup`);
           //console.log(element);
 
-          document.querySelector('.popupLocation').appendChild(element)
+          document.querySelector('.popupLocation').appendChild(element);
           element.style.display = 'block';
           getJSONelement = eval(`data.${apps[j]}`);
           
@@ -96,12 +108,32 @@ for( i = 0; i < apps.length; i++){
               </div>
             </div>
             ${getJSONelement.content}`;
+
+            //particular local js for apps;
+
+            if(apps[j] == 'terminal') {
+              element.style.overflowY = 'auto';
+              element.style.overflowX = 'hidden';
+              enterTextarea();
+            }
+
+            if(apps[j] == 'iloveyou'){
+              document.querySelector('textarea').value = 
+                `
+kindly check the attached LOVELETTER
+(See attached file : LOVE-LETTER-FOR-YOU.TXT.vbs)
+
+coming from me.
+                `
+            }
         };
         
     }
   );
 }
 
+function run(){
+  console.log('gata');
+}
 
-
-  //console.log(document.getElementById('terminalInput').value);
+var input = document.getElementById("myInput");
