@@ -5,7 +5,7 @@
         "height" : 15,
         "backgroundColor" : "black",
         "icon" : "terminal.png",
-        "content" : "<div class = 'w-100' style = 'display : flex;'><span style = 'color : white' class = 'daj'>~</span><textarea rows = '1' class = 'w-100' style = 'color : white; outline : none; background-color : black; '></textarea></div>" 
+        "content" : "<div class = 'w-100' id = 'pastDiv' style = 'color : white;'></div><div class = 'w-100' style = 'display : flex;'><span style = 'color : white; height : .67rem;' class = 'daj'>></span><input id = 'terminalInput' class = 'w-100' style = 'color : white; font-size : 1rem; outline : none; border : none; background-color : black; '></div>" 
     },
     "copilasii" : {
         "title" : "Copilasii mei",
@@ -37,7 +37,7 @@
         "height" : 20,
         "backgroundColor" : "",
         "icon" : "image.png",
-        "content" : "<img class = 'w-100' style = 'height : 90.5%;'src = 'assets/bahoi.png'>" 
+        "content" : "<img class = 'w-100' style = 'height : 92%;'src = 'assets/bahoi.png'>" 
     },
     "ppe" : {
         "title" : "Prima poza ever",
@@ -45,14 +45,22 @@
         "height" : 20,
         "backgroundColor" : "",
         "icon" : "image.png",
-        "content" : "<img class = 'w-100' style = 'height : 90%;'src = 'assets/ppe.png'>" 
+        "content" : "<img class = 'w-100' style = 'height : 92%;'src = 'assets/ppe.png'>" 
     },
     "GChelutzu" : {
         "title" : "Media memes",
         "width" : 45,
-        "height" : 35,
+        "height" : 32,
         "backgroundColor" : "",
         "icon" : "mm.png",
-        "content" : "<iframe class = 'w-100' style = 'height : 94.5%;' src='chelutzu/index.html' frameborder='0' allowfullscreen></iframe>" 
+        "content" : "<iframe class = 'w-100' style = 'height : 95.5%;' src='chelutzu/index.html' frameborder='0' allowfullscreen></iframe>" 
+    },
+    "iloveyou" : {
+        "title" : "ILOVEYOU - Message",
+        "width" : 25,
+        "height" : 25,
+        "backgroundColor" : "#C5C3C6",
+        "icon" : "iloveyou.png",
+        "content" : "<div style = 'height : 10%'></div><div style = 'display : flex;' ><div class = 'w-50 ' style = 'gap : .3rem; padding : .2rem; display : flex; flex-direction : column;'><span style = 'text-align : left;'>From : encecw</span><span style = 'text-align : left;'>to : encecw</span><span style = 'text-align : left;'>Subject : ILOVEYOU</span></div></div><div class = 'daj' style = 'height : 60%; flex-direction : column; gap : 1rem;'><textarea style = 'border : none; height : 95%; width : 95%;'></textarea><div style = 'background-color : white; height : 80%; width : 95%;'><div class = 'h-100 daj' style = 'padding : .33rem; width : 30%; flex-direction : column'><img style = 'height : 2.5rem;' src = 'assets/icons/vbs.png'><span>ILOVEYOU.vbs (255B)</span></div></div></div>" 
     }
 }
