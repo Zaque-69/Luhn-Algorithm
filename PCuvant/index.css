@@ -63,5 +63,5 @@ h2, .wordh1{
     }
 }
 .danNegroface{
-    animation : rot 1s infinite;
+    animation : rot 1s infinite linear;
 }
