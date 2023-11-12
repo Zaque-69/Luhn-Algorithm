@@ -1,21 +1,24 @@
 {
     "terminal" : {
+        "appinfo" : "true",
         "title" : "Terminal",
         "width" : 25,
         "height" : 15,
         "backgroundColor" : "black",
         "icon" : "terminal.png",
-        "content" : "<div class = 'w-100' id = 'pastDiv' style = 'color : white;'></div><div class = 'w-100' style = 'display : flex;'><span style = 'color : white; height : .67rem;' class = 'daj'>></span><input id = 'terminalInput' class = 'w-100' style = 'color : white; font-size : 1rem; outline : none; border : none; background-color : black; '></div>" 
+        "content" : "<div class = 'w-100' id = 'pastDiv' style = 'color : white;padding : .2rem;'></div><div class = 'w-100' style = 'display : flex; padding : .2rem;'><span style = 'color : white; height : .67rem;' class = 'daj'><small>></small></span><input id = 'terminalInput' class = 'w-100' style = 'color : white; font-size : 1rem; outline : none; border : none; background-color : black; '></div>" 
     },
     "copilasii" : {
+        "appinfo" : "true",
         "title" : "Copilasii mei",
         "width" : 25,
         "height" : 15,
         "backgroundColor" : "#D4D3D2",
         "icon" : "copilasii.png",
-        "content" : "<iframe class = 'w-100' style = 'height : 87%;' src='https://www.youtube.com/embed/NoTFUytUKWg' frameborder='0' allowfullscreen></iframe>" 
+        "content" : "<iframe class = 'w-100' style = 'height : 88%;' src='https://www.youtube.com/embed/NoTFUytUKWg' frameborder='0' allowfullscreen></iframe>" 
     },
     "pcuvant" : {
+        "appinfo" : "true",
         "title" : "Kuvinte cu Dahn Neegruø",
         "width" : 30,
         "height" : 37.5,
@@ -24,30 +27,34 @@
         "content" : "<iframe style = 'height : 95%; width : 99%' src = 'PCuvant/index.html'></iframe>" 
     },
     "gta6" : {
+        "appinfo" : "false",
         "title" : "GTA 6",
         "width" : 30,
         "height" : 40, 
         "backgroundColor" : "",
         "icon" : "gta6.png",
-        "content" : "<img class = 'w-100' style = 'height : 95%;'src = 'assets/ciordeala.jpg'>" 
+        "content" : "<img class = 'w-100' style = 'height : 96%;'src = 'assets/ciordeala.jpg'>" 
     },
     "bahoiImage" : {
+        "appinfo" : "true",
         "title" : "Bahoi.",
         "width" : 20,
         "height" : 20,
         "backgroundColor" : "",
         "icon" : "image.png",
-        "content" : "<img class = 'w-100' style = 'height : 92%;'src = 'assets/bahoi.png'>" 
+        "content" : "<img class = 'w-100' src = 'assets/bahoi.png'>" 
     },
     "ppe" : {
+        "appinfo" : "true",
         "title" : "Prima poza ever",
         "width" : 30,
         "height" : 20,
         "backgroundColor" : "",
         "icon" : "image.png",
-        "content" : "<img class = 'w-100' style = 'height : 92%;'src = 'assets/ppe.png'>" 
+        "content" : "<img class = 'w-100'src = 'assets/ppe.png'>" 
     },
     "GChelutzu" : {
+        "appinfo" : "true",
         "title" : "Media memes",
         "width" : 45,
         "height" : 32,
@@ -56,11 +63,21 @@
         "content" : "<iframe class = 'w-100' style = 'height : 95.5%;' src='chelutzu/index.html' frameborder='0' allowfullscreen></iframe>" 
     },
     "iloveyou" : {
+        "appinfo" : "true",
         "title" : "ILOVEYOU - Message",
         "width" : 25,
         "height" : 25,
         "backgroundColor" : "#C5C3C6",
         "icon" : "iloveyou.png",
-        "content" : "<div style = 'height : 10%'></div><div style = 'display : flex;' ><div class = 'w-50 ' style = 'gap : .3rem; padding : .2rem; display : flex; flex-direction : column;'><span style = 'text-align : left;'>From : encecw</span><span style = 'text-align : left;'>to : encecw</span><span style = 'text-align : left;'>Subject : ILOVEYOU</span></div></div><div class = 'daj' style = 'height : 60%; flex-direction : column; gap : 1rem;'><textarea style = 'border : none; height : 95%; width : 95%;'></textarea><div style = 'background-color : white; height : 80%; width : 95%;'><div class = 'h-100 daj' style = 'padding : .33rem; width : 30%; flex-direction : column'><img style = 'height : 2.5rem;' src = 'assets/icons/vbs.png'><span>ILOVEYOU.vbs (255B)</span></div></div></div>" 
+        "content" : "<div style = 'height : 10%'></div><div style = 'display : flex;' ><div class = 'w-50 ' style = 'gap : .3rem; padding : .2rem; display : flex; flex-direction : column;'><span style = 'text-align : left;'>From : your mum</span><span style = 'text-align : left;'>to : you</span><span style = 'text-align : left;'>Subject : ILOVEYOU</span></div></div><div class = 'daj' style = 'height : 60%; flex-direction : column; gap : 1rem;'><textarea style = 'border : none; height : 95%; width : 95%;'></textarea><div style = 'background-color : white; height : 80%; width : 95%;'><div class = 'h-100 daj' style = 'padding : .33rem; width : 30%; flex-direction : column'><img style = 'height : 2.5rem;' src = 'assets/icons/vbs.png'><span>ILOVEYOU.vbs (255B)</span></div></div></div>" 
+    },
+    "varasimulator" : {
+        "appinfo" : "false",
+        "title" : "Vara Simulator",
+        "width" : 30,
+        "height" : 20,
+        "backgroundColor" : "",
+        "icon" : "chelutzu.png",
+        "content" : "<audio id = 'hatz' src = 'assets/audio/hatz.mp3'></audio><img src = 'assets/video/chelutzu.gif' id = 'dpopa' onclick = 'document.querySelector(`.popupLocation`).removeChild(document.querySelector(`.varasimulatorPopup`));' onmouseover = 'moveDPopa();'><audio id = 'bassAudio' src = 'assets/audio/dropbass.mp3'></audio>" 
     }
 }
