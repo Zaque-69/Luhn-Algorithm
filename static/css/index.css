@@ -54,9 +54,7 @@ body{
     position : absolute;
     width : 60px;
 }
-.desktopApp:hover{
-    cursor : pointer;
-}
+
 .blockApp{
     height : 70px; 
     width : 70px; 
