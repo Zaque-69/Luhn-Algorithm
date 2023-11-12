@@ -23,6 +23,14 @@ function dragElement(el){
   })
 }
 
+function moveDPopa(){
+  document.getElementById('hatz').play();
+  document.querySelector('.varasimulatorPopup').style.top = (getRandomArbitrary(window.innerHeight * 0, window.innerHeight * .7)) + 'px';
+  document.querySelector('.varasimulatorPopup').style.left = (getRandomArbitrary(window.innerWidth * 0, window.innerWidth * .7)) + 'px';
+  };
+
+
+//dragElement(".desktopApp");
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min ;
 }
@@ -39,15 +47,15 @@ function enterTextarea(){
     });
 }
 
-dragElement(".desktopApp");
 var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
-              'GChelutzu', 'iloveyou'];
+              'GChelutzu', 'iloveyou', 'varasimulator'];
 
 var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta6.png', 
-            'copilasii.png', 'image.png', 'mm.png', 'iloveyou.png']
+            'copilasii.png', 'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png']
 
 var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 
-            'copilasii', 'prima poza ever','M. M.', 'ILOVEYOU']
+            'copilasii', 'prima poza ever','M. M.', 'ILOVEYOU', 'vara simulator']
+
 for(let j = 0; j < apps.length; j++){
   lab = document.createElement('div'); lab.classList.add(`${apps[j]}`);
       document.getElementById('label2').appendChild(lab);
@@ -67,36 +75,29 @@ for(let j = 0; j < apps.length; j++){
       `
 }
 
-for( i = 0; i < apps.length; i++){
-  let j = i; 
+for( i = 0; i < apps.length; i++){ let j = i; 
   fetch("static/js/local.json").then(response => response.json()).then(data => {
-    const apps = ['terminal', 'copilasii', 'pcuvant', 'gta6', 'bahoiImage', 'ppe',
-                  'GChelutzu', 'iloveyou']; 
-      //document.querySelector('.' + apps[j] + 'Popup').style.display = 'none';
+    const animations = ['fadeIn', 'rotation', 'translateX'];
       document.querySelector('.' + apps[j] + 'Desktop').ondblclick = function()
         {
           var element = document.createElement('div');
           element.classList.add('desktopApp', `${apps[j]}Popup`);
-          //console.log(element);
 
           document.querySelector('.popupLocation').appendChild(element);
           element.style.display = 'block';
           getJSONelement = eval(`data.${apps[j]}`);
           
-          element.style.border = '3px solid #D4D3D2';
-          element.style.borderStyle = 'outset'; 
           element.style.width = (getJSONelement.width) + 'rem'; 
           element.style.height = (getJSONelement.height ) + 'rem'; 
-
-          //console.log(getJSONelement.height); console.log(getJSONelement.height - 1)
+          element.style.overflow = 'hidden'; 
+          element.style.animation = `${animations[Math.floor(Math.random()*animations.length)]}  .5s`; 
 
           element.style.backgroundColor = getJSONelement.backgroundColor;
           element.style.top = (getRandomArbitrary(window.innerHeight * 0.25, window.innerHeight * 0.3)) + 'px';
           element.style.left = (getRandomArbitrary(window.innerWidth * 0.25, window.innerWidth * 0.75)) + 'px';
           var icon = getJSONelement.icon; var title = getJSONelement.title;
-          //calling the drag function after appending child in the popupLocation div to be movable
-          dragElement(".desktopApp");
-          element.innerHTML = 
+
+          if(getJSONelement.appinfo == 'true') {element.innerHTML = 
             `<div style = 'padding-bottom : .2rem; background-color : #D4D3D2;'>
               <div 
               style = 'gap : .33rem; padding-left : .33rem; padding : .2rem; height : 1rem; background : linear-gradient(45deg, #7FA9C4, #2D536B)'
@@ -106,10 +107,13 @@ for( i = 0; i < apps.length; i++){
                   <button class = '${apps[j]}Close' onclick = "document.querySelector('.popupLocation').removeChild(document.querySelector('.${apps[j]}Popup'));"> x </button>
                 </div>
               </div>
-            </div>
+            </div> 
             ${getJSONelement.content}`;
-
-            //particular local js for apps;
+            dragElement(".desktopApp");
+            element.style.border = '3px solid #D4D3D2';
+            element.style.borderStyle = 'outset'; 
+        }
+            else element.innerHTML = `${getJSONelement.content}`
 
             if(apps[j] == 'terminal') {
               element.style.overflowY = 'auto';
@@ -123,17 +127,20 @@ for( i = 0; i < apps.length; i++){
 kindly check the attached LOVELETTER
 (See attached file : LOVE-LETTER-FOR-YOU.TXT.vbs)
 
-coming from me.
-                `
+coming from me. `
+            }
+
+            if(apps[j] == 'varasimulator') {
+              element.style.top = window.innerHeight - 350 + 'px';
+              element.style.left = window.innerWidth - 500 + 'px';
+              document.getElementById('bassAudio').play();
+              try{
+                document.getElementById('dpopa').addEventListener('onclick', function(){
+                  document.getElementById('hatz').play();
+                });
+              } catch{};
             }
         };
-        
     }
   );
 }
-
-function run(){
-  console.log('gata');
-}
-
-var input = document.getElementById("myInput");
