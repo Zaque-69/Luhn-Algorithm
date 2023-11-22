@@ -1,6 +1,5 @@
 let i;
 function dragElement(el){
-
   document.querySelectorAll(el).forEach((element) =>{
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     element.onmousedown = dragMouseDown;
@@ -48,44 +47,73 @@ function enterTextarea(){
 }
 
 var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
-              'GChelutzu', 'iloveyou', 'varasimulator'];
+              'GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului'];
 
 var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta6.png', 
-            'copilasii.png', 'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png']
+            'copilasii.png', 'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png',
+          'pb.png']
 
 var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 
-            'copilasii', 'prima poza ever','M. M.', 'ILOVEYOU', 'vara simulator']
+            'copilasii', 'prima poza ever cu un dinozaur','M. M.', 'ILOVEYOU', 'vara simulator', 'Corabia Piratului']
 
 for(let j = 0; j < apps.length; j++){
   lab = document.createElement('div'); lab.classList.add(`${apps[j]}`);
       document.getElementById('label2').appendChild(lab);
       document.querySelector(`.${apps[j]}`).innerHTML = `
-      
-      <div class = 'blockApp ${apps[j]} display-flex-align-items-center-justify-content-center'>
-        <div class = 'desktopApp ${apps[j]}Desktop'>
-            <div class = 'desktopApp w-100 h-100'></div>
-        <div class="w-100 h-100 display-flex-align-items-center-justify-content-center" style = 'flex-direction: column;'>
-            <div class = 'w-100 display-flex-align-items-center-justify-content-center'>
-                <img src="assets/icons/${icons[j]}" style = 'height : 2.3rem; '>
-            </div>
-            <span class = 'w-100 display-flex-align-items-center-justify-content-center' style = 'font-size: .7rem; color : white;'>${titles[j]}</span>
+     
+        <div class = 'blockApp ${apps[j]} display-flex-align-items-center-justify-content-center' id = '${apps[j]}Section'>
+        <!--<a href = '#${apps[j]}Section'>-->
+          <div class = 'desktopApp ${apps[j]}Desktop'>
+              <div class = 'desktopApp w-100 h-100'></div>
+          <div class="w-100 h-100 display-flex-align-items-center-justify-content-center" style = 'flex-direction: column;'>
+              <div class = 'w-100 display-flex-align-items-center-justify-content-center'>
+                  <img src="assets/icons/${icons[j]}" style = 'height : 2rem; '>
+              </div>
+              <span class = 'w-100 display-flex-align-items-center-justify-content-center' style = 'font-size: .7rem; color : white;'>${titles[j]}</span>
+          </div>
+          </div>
+          <!--</a>-->
         </div>
-        </div>
-      </div>
+
       `
 }
 
-for( i = 0; i < apps.length; i++){ let j = i; 
+function appPopupStructure(app, title, icon, lastDSCommand){
+  return `<div style = 'padding-bottom : .2rem; background-color : #D4D3D2;'>
+  <div 
+    style = 'gap : .33rem; padding-left : .33rem; padding : .2rem; height : 1rem; background : linear-gradient(45deg, #7FA9C4, #2D536B)'
+    class = 'display-flex-align-items-center'>
+      <img src = 'assets/icons/${icon}' style = 'height : 100%;'> <span style = 'width : 75%; display : flex; align-items : start;'>${title}</span>
+      <div class = 'w-100 display-flex-align-items-center' style = 'justify-content : right; padding-right : .33rem'>
+        <button class = '${app}Close' onclick = "document.querySelector('.popupLocation').removeChild(document.querySelector('.${app}Popup'));"> x </button>
+      </div>
+    </div>
+  </div>
+  ${lastDSCommand}`;
+}
+
+function createApp(elem){ 
+  var element = document.createElement('div');
+  element.classList.add('desktopApp', elem + 'Popup');
+  document.querySelector('.popupLocation').appendChild(element);
+  element.style.display = 'block';
+};
+
+for( i = 0; i < apps.length; i++){
+  let j = i; 
   fetch("static/js/local.json").then(response => response.json()).then(data => {
     const animations = ['fadeIn', 'rotation', 'translateX'];
       document.querySelector('.' + apps[j] + 'Desktop').ondblclick = function()
         {
+          
+          getJSONelement = eval(`data.${apps[j]}`);
+
           var element = document.createElement('div');
           element.classList.add('desktopApp', `${apps[j]}Popup`);
 
           document.querySelector('.popupLocation').appendChild(element);
           element.style.display = 'block';
-          getJSONelement = eval(`data.${apps[j]}`);
+          
           
           element.style.width = (getJSONelement.width) + 'rem'; 
           element.style.height = (getJSONelement.height ) + 'rem'; 
@@ -97,19 +125,12 @@ for( i = 0; i < apps.length; i++){ let j = i;
           element.style.left = (getRandomArbitrary(window.innerWidth * 0.25, window.innerWidth * 0.75)) + 'px';
           var icon = getJSONelement.icon; var title = getJSONelement.title;
 
-          if(getJSONelement.appinfo == 'true') {element.innerHTML = 
-            `<div style = 'padding-bottom : .2rem; background-color : #D4D3D2;'>
-              <div 
-              style = 'gap : .33rem; padding-left : .33rem; padding : .2rem; height : 1rem; background : linear-gradient(45deg, #7FA9C4, #2D536B)'
-              class = 'display-flex-align-items-center'>
-                <img src = 'assets/icons/${icon}' style = 'height : 100%;'> <span style = 'width : 75%; display : flex; align-items : start;'>${title}</span>
-                <div class = 'w-100 display-flex-align-items-center' style = 'justify-content : right; padding-right : .33rem'>
-                  <button class = '${apps[j]}Close' onclick = "document.querySelector('.popupLocation').removeChild(document.querySelector('.${apps[j]}Popup'));"> x </button>
-                </div>
-              </div>
-            </div> 
-            ${getJSONelement.content}`;
-            dragElement(".desktopApp");
+          dragElement('.desktopApp');
+
+          if(getJSONelement.appinfo == 'true') {
+            element.innerHTML = appPopupStructure(apps[j], title, icon, getJSONelement.content);
+        
+            
             element.style.border = '3px solid #D4D3D2';
             element.style.borderStyle = 'outset'; 
         }
@@ -143,4 +164,6 @@ coming from me. `
         };
     }
   );
+  
 }
+dragElement('.desktopApp');
