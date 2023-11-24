@@ -21,19 +21,19 @@
         "appinfo" : "true",
         "title" : "Kuvinte cu Dahn Neegruø",
         "width" : 30,
-        "height" : 37.5,
+        "height" : 40,
         "backgroundColor" : "",
         "icon" : "pcuvant.png",
-        "content" : "<iframe style = 'height : 95%; width : 99%' src = 'PCuvant/index.html'></iframe>" 
+        "content" : "<iframe style = 'height : 100%; width : 100%' src = 'PCuvant/index.html'></iframe>" 
     },
     "gta6" : {
-        "appinfo" : "false",
+        "appinfo" : "true",
         "title" : "GTA 6",
         "width" : 30,
         "height" : 40, 
         "backgroundColor" : "",
         "icon" : "gta6.png",
-        "content" : "<img class = 'w-100' style = 'height : 96%;'src = 'assets/ciordeala.jpg'>" 
+        "content" : "<img class = 'w-100' style = 'height : 100%;'src = 'assets/ciordeala.jpg'>" 
     },
     "bahoiImage" : {
         "appinfo" : "true",
@@ -46,12 +46,12 @@
     },
     "ppe" : {
         "appinfo" : "true",
-        "title" : "Prima poza ever",
+        "title" : "iliescu",
         "width" : 30,
-        "height" : 20,
+        "height" : 15,
         "backgroundColor" : "",
         "icon" : "image.png",
-        "content" : "<img class = 'w-100'src = 'assets/ppe.png'>" 
+        "content" : "<img class = 'w-100' style = 'height : 100%;' src = 'assets/ppe.png'>" 
     },
     "GChelutzu" : {
         "appinfo" : "true",
@@ -60,7 +60,7 @@
         "height" : 32,
         "backgroundColor" : "",
         "icon" : "mm.png",
-        "content" : "<iframe class = 'w-100' style = 'height : 95.5%;' src='chelutzu/index.html' frameborder='0' allowfullscreen></iframe>" 
+        "content" : "<iframe class = 'w-100' style = 'height : 100%;' src='chelutzu/index.html' frameborder='0' allowfullscreen></iframe>" 
     },
     "iloveyou" : {
         "appinfo" : "true",
@@ -79,5 +79,14 @@
         "backgroundColor" : "",
         "icon" : "chelutzu.png",
         "content" : "<audio id = 'hatz' src = 'assets/audio/hatz.mp3'></audio><img src = 'assets/video/chelutzu.gif' id = 'dpopa' onclick = 'document.querySelector(`.popupLocation`).removeChild(document.querySelector(`.varasimulatorPopup`));' onmouseover = 'moveDPopa();'><audio id = 'bassAudio' src = 'assets/audio/dropbass.mp3'></audio>" 
+    },
+    "credits" : {
+        "appinfo" : "true",
+        "title" : "Credits",
+        "width" : 20,
+        "height" : 20,
+        "backgroundColor" : "white",
+        "icon" : "credits.png",
+        "content" : "<div style = 'padding : .33rem;'><span style = 'font-size : .77rem;'>CEO : Z4que <br> Github : https://github.com/Zaque-69 <br> Github : https://github.com/Zaque-69</span></div>" 
     }
 }
