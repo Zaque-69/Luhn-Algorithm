@@ -1,4 +1,4 @@
-let i;
+let i; document.querySelector('body').style.height = window.innerHeight - 50 + 'px';
 function dragElement(el){
   document.querySelectorAll(el).forEach((element) =>{
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -35,26 +35,27 @@ function getRandomArbitrary(min, max) {
 }
 
 function enterTextarea(){
-    
   document.getElementById('terminalInput').addEventListener("keypress", function(event) {
       var prevCommand = document.createElement('div'); prevCommand.style.paddingLeft = '.33rem';
       prevCommand.innerHTML = document.getElementById('terminalInput').value;
       if ((event.key === "Enter") && document.getElementById('terminalInput').value != ''){ 
         document.getElementById('pastDiv').appendChild(prevCommand);
         document.getElementById('terminalInput').value = '';
+        
       }
     });
 }
 
 var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
-              'GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului'];
+              'GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului', 'credits'];
 
 var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta6.png', 
             'copilasii.png', 'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png',
-          'pb.png']
+          'pb.png', 'credits.png']
 
 var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 
-            'copilasii', 'prima poza ever cu un dinozaur','M. M.', 'ILOVEYOU', 'vara simulator', 'Corabia Piratului']
+            'copilasii', 'prima poza ever cu un dinozaur','M. M.', 'ILOVEYOU', 'vara simulator', 'Corabia Piratului',
+          'Credits.txt']
 
 for(let j = 0; j < apps.length; j++){
   lab = document.createElement('div'); lab.classList.add(`${apps[j]}`);
@@ -102,7 +103,8 @@ function createApp(elem){
 for( i = 0; i < apps.length; i++){
   let j = i; 
   fetch("static/js/local.json").then(response => response.json()).then(data => {
-    const animations = ['fadeIn', 'rotation', 'translateX'];
+    const animations = ['fadeIn', 'rotation', 'rotation2', 'translateX'];
+    const animations2 = ['fadeOut', 'derotation', 'derotation2', 'translateX2'];
       document.querySelector('.' + apps[j] + 'Desktop').ondblclick = function()
         {
           
