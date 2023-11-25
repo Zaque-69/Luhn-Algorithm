@@ -1,4 +1,4 @@
-let i; document.querySelector('body').style.height = window.innerHeight - 50 + 'px';
+let i; document.querySelector('.main').style.height = window.innerHeight - 35 + 'px';
 function dragElement(el){
   document.querySelectorAll(el).forEach((element) =>{
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -72,7 +72,7 @@ function moveDPopa(){
   document.querySelector('.varasimulatorPopup').style.left = (getRandomArbitrary(window.innerWidth * 0, window.innerWidth * .7)) + 'px';
   };
 
-//dragElement(".desktopApp");
+
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min ;
 }
@@ -85,33 +85,34 @@ function enterTextarea(){
         document.getElementById('pastDiv').appendChild(prevCommand);
         createApp(document.getElementById('terminalInput').value);
         document.getElementById('terminalInput').value = '';
-        
-      }
-    });
+    }
+  });
 }
 
 var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
-              'GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului', 'credits'];
+              'GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului', 'credits',
+            'mypc', 'manual'];
 
 var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta6.png', 
             'copilasii.png', 'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png',
-          'pb.png', 'credits.png']
+          'pb.png', 'credits.png', 'pc.gif', 'manual.png'];
 
 var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 
             'copilasii', 'prima poza ever cu un dinozaur','M. M.', 'ILOVEYOU', 'vara simulator', 'Corabia Piratului',
-          'Credits.txt']
-
-for(let j = 0; j < apps.length; j++){
-  lab = document.createElement('div'); lab.classList.add(`${apps[j]}`);
-      document.getElementById('label2').appendChild(lab);
-      document.querySelector(`.${apps[j]}`).innerHTML = mainStructure(apps[j], icons[j], titles[j]);
-}
+          'Credits.txt', 'My PC', 'Manual']
 
 for( i = 0; i < apps.length; i++){
   let j = i; 
   fetch("static/js/local.json").then(response => response.json()).then(data => {
     const animations = ['fadeIn', 'rotation', 'rotation2', 'translateX'];
     //const animations2 = ['fadeOut', 'derotation', 'derotation2', 'translateX2'];
+
+    try{
+      lab = document.createElement('div'); lab.classList.add(`${apps[j]}`);
+      document.getElementById(eval(`data.${apps[j]}.place`)).appendChild(lab);
+      document.querySelector(`.${apps[j]}`).innerHTML = mainStructure(apps[j], icons[j], titles[j]);
+    } catch{};
+
       document.querySelector('.' + apps[j] + 'Desktop').ondblclick = function()
         {
           
@@ -127,6 +128,7 @@ for( i = 0; i < apps.length; i++){
           element.style.height = (getJSONelement.height ) + 'rem'; 
           element.style.overflow = 'hidden'; 
           element.style.animation = `${animations[Math.floor(Math.random()*animations.length)]}  .5s`; 
+          if(apps[j] != 'varasimulator') element.style.boxShadow = '.33rem .33rem 10rem  #34585C';
 
           element.style.backgroundColor = getJSONelement.backgroundColor;
           element.style.top = (getRandomArbitrary(window.innerHeight * 0.25, window.innerHeight * 0.3)) + 'px';
@@ -138,7 +140,6 @@ for( i = 0; i < apps.length; i++){
           if(getJSONelement.appinfo == 'true') {
             element.innerHTML = appPopupStructure(apps[j], title, icon, getJSONelement.content);
         
-            
             element.style.border = '3px solid #D4D3D2';
             element.style.borderStyle = 'outset'; 
         }
@@ -176,3 +177,5 @@ coming from me. `
   
 }
 dragElement('.desktopApp');
+
+document.querySelector('.bottomBar').style.height = window.innerHeight - 246 + 'px';
