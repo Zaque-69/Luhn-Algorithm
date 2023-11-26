@@ -93,7 +93,7 @@
         "place" : "label3",
         "appinfo" : "true",
         "title" : "Credits",
-        "width" : 20,
+        "width" : 30,
         "height" : 20,
         "backgroundColor" : "white",
         "icon" : "credits.png",
@@ -112,21 +112,21 @@
     "mypc" : {
         "place" : "label1",
         "appinfo" : "true",
-        "title" : "Credits",
+        "title" : "Pc",
         "width" : 30,
         "height" : 20,
         "backgroundColor" : "white",
         "icon" : "pc.png",
-        "content" : "<div style = 'padding : .33rem;'><span style = 'font-size : .77rem;'>CEO : Z4que <br> Github : https://github.com/Zaque-69 <br> Video Copilasii mei : <a href = 'https://www.youtube.com/watch?v=NoTFUytUKWg'>https://www.youtube.com/watch?v=NoTFUytUKWg</a></span></div>" 
+        "content" : "<input>" 
     },
     "manual" : {
         "place" : "label1",
         "appinfo" : "true",
-        "title" : "Credits",
+        "title" : "Manual",
         "width" : 30,
-        "height" : 20,
+        "height" : 40,
         "backgroundColor" : "white",
-        "icon" : "pc.png",
-        "content" : "<div style = 'padding : .33rem;'><span style = 'font-size : .77rem;'>CEO : Z4que <br> Github : https://github.com/Zaque-69 <br> Video Copilasii mei : <a href = 'https://www.youtube.com/watch?v=NoTFUytUKWg'>https://www.youtube.com/watch?v=NoTFUytUKWg</a></span></div>" 
+        "icon" : "manual.png",
+        "content" : "<iframe src = 'manual.html' class = 'h-100 w-100'></iframe>" 
     }
 }
