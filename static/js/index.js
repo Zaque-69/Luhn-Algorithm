@@ -54,6 +54,14 @@ function mainStructure(elem, elem2, elem3){
         `
 }
 
+function returnIloveyou(){
+  return`
+kindly check the attached LOVELETTER
+(See attached file : LOVE-LETTER-FOR-YOU.TXT.vbs)
+
+coming from me. `
+}
+
 function createApp(elem){ 
   var element = document.createElement('div');
   element.classList.add('desktopApp', elem + 'Popup');
@@ -72,7 +80,6 @@ function moveDPopa(){
   document.querySelector('.varasimulatorPopup').style.left = (getRandomArbitrary(window.innerWidth * 0, window.innerWidth * .7)) + 'px';
   };
 
-
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min ;
 }
@@ -89,17 +96,11 @@ function enterTextarea(){
   });
 }
 
-var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
-              'GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului', 'credits',
-            'mypc', 'manual'];
+var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe','GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului', 'credits','mypc', 'manual'];
 
-var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta6.png', 
-            'copilasii.png', 'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png',
-          'pb.png', 'credits.png', 'pc.gif', 'manual.png'];
+var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta.png', 'copilasii.png', 'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','pb.png', 'credits.png', 'pc.gif', 'manual.png'];
 
-var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 
-            'copilasii', 'prima poza ever cu un dinozaur','M. M.', 'ILOVEYOU', 'vara simulator', 'Corabia Piratului',
-          'Credits.txt', 'My PC', 'Manual']
+var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'prima poza ever cu un dinozaur','M. M.', 'ILOVEYOU', 'vara simulator', 'Corabia Piratului','Credits.txt', 'My PC', 'Manual']
 
 for( i = 0; i < apps.length; i++){
   let j = i; 
@@ -113,13 +114,17 @@ for( i = 0; i < apps.length; i++){
       document.querySelector(`.${apps[j]}`).innerHTML = mainStructure(apps[j], icons[j], titles[j]);
     } catch{};
 
-      document.querySelector('.' + apps[j] + 'Desktop').ondblclick = function()
+      // calling app depends on dbclick function for desktop apps or from the menu bottom where we are using onclick function
+      function callApp(AppName, clickEv){
+        
+
+        document.querySelector('.' + AppName + 'Desktop').onclick = function()
         {
           
-          getJSONelement = eval(`data.${apps[j]}`);
+          getJSONelement = eval(`data.${AppName}`);
 
           var element = document.createElement('div');
-          element.classList.add('desktopApp', `${apps[j]}Popup`);
+          element.classList.add('desktopApp', `${AppName}Popup`);
 
           document.querySelector('.popupLocation').appendChild(element);
           element.style.display = 'block';
@@ -128,7 +133,7 @@ for( i = 0; i < apps.length; i++){
           element.style.height = (getJSONelement.height ) + 'rem'; 
           element.style.overflow = 'hidden'; 
           element.style.animation = `${animations[Math.floor(Math.random()*animations.length)]}  .5s`; 
-          if(apps[j] != 'varasimulator') element.style.boxShadow = '.33rem .33rem 10rem  #34585C';
+          if(AppName != 'varasimulator') element.style.boxShadow = '.33rem .33rem 10rem  #34585C';
 
           element.style.backgroundColor = getJSONelement.backgroundColor;
           element.style.top = (getRandomArbitrary(window.innerHeight * 0.25, window.innerHeight * 0.3)) + 'px';
@@ -138,30 +143,27 @@ for( i = 0; i < apps.length; i++){
           dragElement('.desktopApp');
 
           if(getJSONelement.appinfo == 'true') {
-            element.innerHTML = appPopupStructure(apps[j], title, icon, getJSONelement.content);
+            element.innerHTML = appPopupStructure(AppName, title, icon, getJSONelement.content);
         
             element.style.border = '3px solid #D4D3D2';
             element.style.borderStyle = 'outset'; 
         }
             else element.innerHTML = `${getJSONelement.content}`
 
-            if(apps[j] == 'terminal') {
+            //these are apps that affect dirrectly the activity on desktop, the other one use iframe 
+            if(AppName == 'terminal') {
               element.style.overflowY = 'auto';
               element.style.overflowX = 'hidden';
               enterTextarea();
               
             };
 
-            if(apps[j] == 'iloveyou'){
-              document.querySelector('textarea').value = 
-                `
-kindly check the attached LOVELETTER
-(See attached file : LOVE-LETTER-FOR-YOU.TXT.vbs)
+            if(AppName == 'iloveyou'){
+              document.querySelector('textarea').value = returnIloveyou();
 
-coming from me. `
             }
 
-            if(apps[j] == 'varasimulator') {
+            if(AppName == 'varasimulator') {
               element.style.top = window.innerHeight - 350 + 'px';
               element.style.left = window.innerWidth - 500 + 'px';
               document.getElementById('bassAudio').play();
@@ -172,10 +174,12 @@ coming from me. `
               } catch{};
             }
         };
+      };
+
+      callApp(apps[j], 'ondblclick');
+
     }
   );
   
 }
 dragElement('.desktopApp');
-
-document.querySelector('.bottomBar').style.height = window.innerHeight - 246 + 'px';
