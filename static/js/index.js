@@ -1,51 +1,3 @@
-document.getElementById('fullBg').style.height = window.innerHeight + 'px';
-document.getElementById('fullBg').style.width = window.innerWidth + 'px';
-
-function menu(x, y){
-  return`
-  <div style = ' left : ${x}px; top : ${y}px;'>
-    <div style = 'width : 10rem;  border : 2px solid #DFDFDF; border-style: outset; position : absolute; id = 'menu'>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un folder...</span></div>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un shortcut...</span></div>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un document...</span></div>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0; border : 1px solid #DFDFDF; border-style: outset; width : 99%' class = ' display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Terminal</span></div>
-    </div>
-  </div>`
-
-}
-
-//showing menu on clicking right button
-addEventListener('contextmenu', function(e){
-  e.preventDefault();
-  //this.alert(`${elem.clientX} si ${elem.clientY}`);
-  document.getElementById('fullBg').innerHTML = menu(e.clientX, e.clientY);
-});
-
-//function for dragging apps on desktop
-let i; document.querySelector('.main').style.height = window.innerHeight - 35 + 'px';
-function dragElement(el){
-  document.querySelectorAll(el).forEach((element) =>{
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    element.onmousedown = dragMouseDown;
-
-  function dragElements(e) {
-    pos1 = pos3 - e.clientX;  pos2 = pos4 - e.clientY;
-    pos3 = e.clientX; pos4 = e.clientY;
-    element.style.top = (element.offsetTop - pos2) + "px";
-    element.style.left = (element.offsetLeft - pos1) + "px";
-  }
-  function cancelDragelements() {
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-  function dragMouseDown(e) {
-    pos3 = e.clientX; pos4 = e.clientY;
-    document.onmouseup = cancelDragelements;
-    document.onmousemove = dragElements;
-  }
-  })
-}
-
 
 
 function appPopupStructure(app, title, icon, lastDSCommand){
@@ -87,6 +39,61 @@ kindly check the attached LOVELETTER
 
 coming from me. `
 }
+
+function menu(x, y){
+  return`
+    <div style = 'width : 10rem;  border : 2px solid #DFDFDF; border-style: outset; position : relative; left : ${x}; top : ${y};' id = 'menu'>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un folder...</span></div>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un shortcut...</span></div>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un document...</span></div>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0; border : 1px solid #DFDFDF; border-style: outset; width : 99%' class = ' display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Terminal</span></div>
+    </div>`
+
+}
+
+document.getElementById('fullBg').style.height = window.innerHeight + 'px';
+document.getElementById('fullBg').style.width = window.innerWidth + 'px';
+
+//showing menu on clicking right button
+addEventListener('contextmenu', function(e){
+  e.preventDefault();
+  //this.alert(`${elem.clientX} si ${elem.clientY}`);
+  var x = e.clientX + 'px'; var y = e.clientY + 'px';
+  //console.log(x, y);
+  document.getElementById('fullBg').innerHTML = menu(x, y);
+});
+
+//every time lister to right click
+addEventListener('click', function(e){
+    if(this.document.getElementById('menu') != null) 
+      this.document.getElementById('menu').remove();
+});
+
+//function for dragging apps on desktop
+let i; document.querySelector('.main').style.height = window.innerHeight - 35 + 'px';
+function dragElement(el){
+  document.querySelectorAll(el).forEach((element) =>{
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    element.onmousedown = dragMouseDown;
+
+  function dragElements(e) {
+    pos1 = pos3 - e.clientX;  pos2 = pos4 - e.clientY;
+    pos3 = e.clientX; pos4 = e.clientY;
+    element.style.top = (element.offsetTop - pos2) + "px";
+    element.style.left = (element.offsetLeft - pos1) + "px";
+  }
+  function cancelDragelements() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+  function dragMouseDown(e) {
+    pos3 = e.clientX; pos4 = e.clientY;
+    document.onmouseup = cancelDragelements;
+    document.onmousemove = dragElements;
+  }
+  })
+};
+
 
 function createApp(elem){ 
   var element = document.createElement('div');
