@@ -1,3 +1,27 @@
+document.getElementById('fullBg').style.height = window.innerHeight + 'px';
+document.getElementById('fullBg').style.width = window.innerWidth + 'px';
+
+function menu(x, y){
+  return`
+  <div style = ' left : ${x}px; top : ${y}px;'>
+    <div style = 'width : 10rem;  border : 2px solid #DFDFDF; border-style: outset; position : absolute; id = 'menu'>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un folder...</span></div>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un shortcut...</span></div>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un document...</span></div>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0; border : 1px solid #DFDFDF; border-style: outset; width : 99%' class = ' display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Terminal</span></div>
+    </div>
+  </div>`
+
+}
+
+//showing menu on clicking right button
+addEventListener('contextmenu', function(e){
+  e.preventDefault();
+  //this.alert(`${elem.clientX} si ${elem.clientY}`);
+  document.getElementById('fullBg').innerHTML = menu(e.clientX, e.clientY);
+});
+
+//function for dragging apps on desktop
 let i; document.querySelector('.main').style.height = window.innerHeight - 35 + 'px';
 function dragElement(el){
   document.querySelectorAll(el).forEach((element) =>{
@@ -21,6 +45,8 @@ function dragElement(el){
   }
   })
 }
+
+
 
 function appPopupStructure(app, title, icon, lastDSCommand){
   return `<div style = 'padding-bottom : .2rem; background-color : #D4D3D2;'>
@@ -118,7 +144,7 @@ for( i = 0; i < apps.length; i++){
       function callApp(AppName, clickEv){
         
 
-        document.querySelector('.' + AppName + 'Desktop').onclick = function()
+        document.querySelector('.' + AppName + 'Desktop').ondblclick = function()
         {
           
           getJSONelement = eval(`data.${AppName}`);
