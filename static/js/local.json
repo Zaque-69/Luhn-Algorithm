@@ -36,7 +36,7 @@
         "width" : 30,
         "height" : 40, 
         "backgroundColor" : "",
-        "icon" : "gta6.png",
+        "icon" : "gta.png",
         "content" : "<img class = 'w-100' style = 'height : 100%;'src = 'assets/ciordeala.jpg'>" 
     },
     "bahoiImage" : {
@@ -97,7 +97,7 @@
         "height" : 20,
         "backgroundColor" : "white",
         "icon" : "credits.png",
-        "content" : "<div style = 'padding : .33rem;'><span style = 'font-size : .77rem;'>CEO : Z4que <br> Github : https://github.com/Zaque-69 <br> Video Copilasii mei : <a href = 'https://www.youtube.com/watch?v=NoTFUytUKWg'>https://www.youtube.com/watch?v=NoTFUytUKWg</a></span></div>" 
+        "content" : "<div style = 'padding : .33rem;'><span style = 'font-size : .77rem;'>CEO : Z4que <br> Github : https://github.com/Zaque-69 <br> Video Copilasii mei : <a href = 'https://www.youtube.com/watch?v=NoTFUytUKWg'>https://www.youtube.com/watch?v=NoTFUytUKWg</a></span><br><span style = 'font-size : .77rem;'>Principala inspiratie : <a href = 'https://www.windows93.net/'>https://www.windows93.net/</a></span></div>" 
     },
     "corabiapiratului" : {
         "place" : "label2",
@@ -123,7 +123,7 @@
         "place" : "label1",
         "appinfo" : "true",
         "title" : "Manual",
-        "width" : 30,
+        "width" : 35,
         "height" : 40,
         "backgroundColor" : "white",
         "icon" : "manual.png",
