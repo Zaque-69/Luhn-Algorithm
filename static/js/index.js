@@ -1,24 +1,8 @@
-
-
-function appPopupStructure(app, title, icon, lastDSCommand){
-  return `<div style = 'padding-bottom : .2rem; background-color : #D4D3D2;'>
-  <div 
-    style = 'gap : .33rem; padding-left : .33rem; padding : .2rem; height : 1rem; background : linear-gradient(45deg, #7FA9C4, #2D536B)'
-    class = 'display-flex-align-items-center'>
-      <img src = 'assets/icons/${icon}' style = 'height : 100%;'> <span style = 'width : 75%; display : flex; align-items : start;'>${title}</span>
-      <div class = 'w-100 display-flex-align-items-center' style = 'justify-content : right; padding-right : .33rem'>
-        <button class = '${app}Close' onclick = "document.querySelector('.popupLocation').removeChild(document.querySelector('.${app}Popup'));"> x </button>
-      </div>
-    </div>
-  </div>
-  ${lastDSCommand}`;
-}
-
-function mainStructure(elem, elem2, elem3){
+function mainStructure(elem, elem2, elem3, removeStr){
   return ` 
       <div class = 'blockApp ${elem} display-flex-align-items-center-justify-content-center' id = '${elem}Section'>
         <!--<a href = '#${elem}Section'>-->
-          <div class = 'desktopApp ${elem}Desktop'>
+          <div class = 'desktopApp ${elem}Desktop ${removeStr}'>
               <div class = 'desktopApp w-100 h-100'></div>
           <div class="w-100 h-100 display-flex-align-items-center-justify-content-center" style = 'flex-direction: column;'>
               <div class = 'w-100 display-flex-align-items-center-justify-content-center'>
@@ -31,6 +15,21 @@ function mainStructure(elem, elem2, elem3){
         </div>
         `
 }
+
+function appPopupStructure(app, title, icon, lastDSCommand, removeStr){
+  return `<div style = 'padding-bottom : .2rem; background-color : #D4D3D2;' >
+  <div 
+    style = 'gap : .33rem; padding-left : .33rem; padding : .2rem; height : 1rem; background : linear-gradient(45deg, #7FA9C4, #2D536B)'
+    class = 'display-flex-align-items-center'>
+      <img src = 'assets/icons/${icon}' style = 'height : 100%;'> <span style = 'width : 75%; display : flex; align-items : start;'>${title}</span>
+      <div class = 'w-100 display-flex-align-items-center' style = 'justify-content : right; padding-right : .33rem'>
+        <button class = '${app}Close' onclick = "document.querySelector('.${removeStr}').remove()"> x </button>
+      </div>
+    </div>
+  </div>
+  ${lastDSCommand}`;
+}
+
 
 function returnIloveyou(){
   return`
@@ -51,10 +50,38 @@ function menu(x, y){
 
 }
 
+function messagebox(string, title, image, internTitle, content){
+  return`<div class = 'messagebox desktopApp' id = '${string}', style = 'cursor: all-scroll;'>
+  <div style = 'padding-bottom : .2rem; background-color : #D4D3D2;'>
+      <div 
+      style = 'gap : .33rem; padding-left : .33rem; padding : .2rem; height : 1rem; background : linear-gradient(45deg, #7FA9C4, #2D536B)'
+      class = 'display-flex-align-items-center'>
+      <span style = 'width : 75%; display : flex; align-items : start;'>${title}</span>
+      <div class = 'w-100 display-flex-align-items-center' style = 'justify-content : right; padding-right : .33rem'>
+          <button onclick = "document.getElementById('${string}').remove();"> x </button>
+      </div>
+      </div>
+  </div>
+  <div class = 'display-flex-align-items-center-justify-content-center ' style = 'flex-direction: column;'>
+      <div class = 'display-flex-align-items-center-justify-content-center'>
+          <img src="assets/icons/${image}.png" alt="ERROR">
+          <span style = 'font-size: 1.33rem; padding : .66rem;' class = 'display-flex-align-items-center-justify-content-center'><b> ${internTitle} </b></span>
+      </div>
+      <div class = 'display-flex-align-items-center-justify-content-center' style = 'padding : .66rem;'> ${content} </div>
+  </div>
+</div>
+`
+}
+document.querySelector('.cutie').innerHTML = messagebox('idk', 'jqkwe', 'error', 'hihihi', 'hahaha');
+try{
+  
 document.getElementById('fullBg').style.height = window.innerHeight + 'px';
 document.getElementById('fullBg').style.width = window.innerWidth + 'px';
+}
+catch{};
 
 //showing menu on clicking right button
+/*
 addEventListener('contextmenu', function(e){
   e.preventDefault();
   //this.alert(`${elem.clientX} si ${elem.clientY}`);
@@ -62,6 +89,7 @@ addEventListener('contextmenu', function(e){
   //console.log(x, y);
   document.getElementById('fullBg').innerHTML = menu(x, y);
 });
+*/
 
 //every time lister to right click
 addEventListener('click', function(e){
@@ -94,7 +122,7 @@ function dragElement(el){
   })
 };
 
-
+//this function fetch data from main json and create an app
 function createApp(elem){ 
   var element = document.createElement('div');
   element.classList.add('desktopApp', elem + 'Popup');
@@ -107,16 +135,19 @@ function createApp(elem){
   element.style.position = 'absolute';
 };
 
+//random number function 
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min ;
+}
+
+//function for varasimulator app 
 function moveDPopa(){
   document.getElementById('hatz').play();
   document.querySelector('.varasimulatorPopup').style.top = (getRandomArbitrary(window.innerHeight * 0, window.innerHeight * .7)) + 'px';
   document.querySelector('.varasimulatorPopup').style.left = (getRandomArbitrary(window.innerWidth * 0, window.innerWidth * .7)) + 'px';
   };
 
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min ;
-}
-
+//function for terminal commands when you enter something
 function enterTextarea(){
   document.getElementById('terminalInput').addEventListener("keypress", function(event) {
       var prevCommand = document.createElement('div'); prevCommand.style.paddingLeft = '.33rem';
@@ -129,12 +160,27 @@ function enterTextarea(){
   });
 }
 
-var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe','GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului', 'credits','mypc', 'manual'];
+function makeid(length) {
+  let result = ''; counter = 0;
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+    counter++;
+  }
+  return result;
+}
 
-var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta.png', 'copilasii.png', 'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','pb.png', 'credits.png', 'pc.gif', 'manual.png'];
+//3 lists : 1 for apps, 2 for icons and 3 for titles on Desktop. If you chenage the array of lists the apps on desktop will be different
+var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
+          'GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului', 'credits','mypc', 'manual'];
 
-var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'prima poza ever cu un dinozaur','M. M.', 'ILOVEYOU', 'vara simulator', 'Corabia Piratului','Credits.txt', 'My PC', 'Manual']
+var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta.png', 'copilasii.png', 
+          'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','pb.png', 'credits.png', 'pc.gif', 'manual.png'];
 
+var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'prima poza ever cu un dinozaur',
+              'M. M.', 'ILOVEYOU', 'vara simulator', 'Corabia Piratului','Credits.txt', 'My PC', 'Manual']
+
+//this for is used in lists, fetching content fron json and display every app, so we dom't have to write manually in html. Js will do
 for( i = 0; i < apps.length; i++){
   let j = i; 
   fetch("static/js/local.json").then(response => response.json()).then(data => {
@@ -144,20 +190,18 @@ for( i = 0; i < apps.length; i++){
     try{
       lab = document.createElement('div'); lab.classList.add(`${apps[j]}`);
       document.getElementById(eval(`data.${apps[j]}.place`)).appendChild(lab);
-      document.querySelector(`.${apps[j]}`).innerHTML = mainStructure(apps[j], icons[j], titles[j]);
+      document.querySelector(`.${apps[j]}`).innerHTML = mainStructure(apps[j], icons[j], titles[j], makeid(5));
     } catch{};
 
       // calling app depends on dbclick function for desktop apps or from the menu bottom where we are using onclick function
-      function callApp(AppName, clickEv){
-        
+      function callApp(AppName){
 
-        document.querySelector('.' + AppName + 'Desktop').ondblclick = function()
-        {
-          
+        document.querySelector('.' + AppName + 'Desktop').ondblclick = function(){
+          rmString = makeid(5);
           getJSONelement = eval(`data.${AppName}`);
 
           var element = document.createElement('div');
-          element.classList.add('desktopApp', `${AppName}Popup`);
+          element.classList.add('desktopApp', `${AppName}Popup`, rmString);
 
           document.querySelector('.popupLocation').appendChild(element);
           element.style.display = 'block';
@@ -176,7 +220,7 @@ for( i = 0; i < apps.length; i++){
           dragElement('.desktopApp');
 
           if(getJSONelement.appinfo == 'true') {
-            element.innerHTML = appPopupStructure(AppName, title, icon, getJSONelement.content);
+            element.innerHTML = appPopupStructure(AppName, title, icon, getJSONelement.content, rmString);
         
             element.style.border = '3px solid #D4D3D2';
             element.style.borderStyle = 'outset'; 
@@ -193,6 +237,9 @@ for( i = 0; i < apps.length; i++){
 
             if(AppName == 'iloveyou'){
               document.querySelector('textarea').value = returnIloveyou();
+              document.getElementById('iloveyou').onclick = function(){
+                console.log('boule');
+              };
 
             }
 
@@ -209,7 +256,7 @@ for( i = 0; i < apps.length; i++){
         };
       };
 
-      callApp(apps[j], 'ondblclick');
+      callApp(apps[j]);
 
     }
   );
