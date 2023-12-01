@@ -77,7 +77,7 @@
         "height" : 25,
         "backgroundColor" : "#C5C3C6",
         "icon" : "iloveyou.png",
-        "content" : "<div style = 'height : 10%'></div><div style = 'display : flex;' ><div class = 'w-50 ' style = 'gap : .3rem; padding : .2rem; display : flex; flex-direction : column;'><span style = 'text-align : left;'>From : ma-ta</span><span style = 'text-align : left;'>to : you</span><span style = 'text-align : left;'>Subject : ILOVEYOU</span></div></div><div class = 'daj' style = 'height : 60%; flex-direction : column; gap : 1rem;'><textarea style = 'border : none; height : 95%; width : 95%;'></textarea><div style = 'background-color : white; height : 80%; width : 95%;'><div class = 'h-100 daj' style = 'padding : .33rem; width : 30%; flex-direction : column'><img style = 'height : 2.5rem;' src = 'assets/icons/vbs.png'><span>ILOVEYOU.vbs (255B)</span></div></div></div>" 
+        "content" : "<div style = 'height : 10%'></div><div style = 'display : flex;' ><div class = 'w-50 ' style = 'gap : .3rem; padding : .2rem; display : flex; flex-direction : column;'><span style = 'text-align : left;'>From : ma-ta</span><span style = 'text-align : left;'>to : you</span><span style = 'text-align : left;'>Subject : ILOVEYOU</span></div></div><div class = 'daj' style = 'height : 60%; flex-direction : column; gap : 1rem;'><textarea style = 'border : none; height : 95%; width : 95%;'></textarea><div style = 'background-color : white; height : 80%; width : 95%;'><div class = 'h-100 daj' style = 'padding : .33rem; width : 30%; flex-direction : column' id = 'iloveyou'><img style = 'height : 2.5rem;' src = 'assets/icons/vbs.png'><span>ILOVEYOU.vbs (255B)</span></div></div></div>" 
     },
     "varasimulator" : {
         "place" : "label2",
