@@ -11,9 +11,6 @@ span{
     padding : .2rem;
     text-align : center;
 }
-*{
-    font-family : PFont;
-}
 textarea{
     font-size : 1rem; 
 }
@@ -66,4 +63,13 @@ body{
 }
 .pastDiv{
     padding-left : .5rem;
+}
+*{
+    border : 1px solid red;
+    font-family : PFont;
+}
+.messagebox{
+    width : 20rem;
+
+    background-color : #C0C0C0;
 }
