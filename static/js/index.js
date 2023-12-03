@@ -42,10 +42,10 @@ coming from me. `
 function menu(x, y){
   return`
     <div style = 'width : 10rem;  border : 2px solid #DFDFDF; border-style: outset; position : relative; left : ${x}; top : ${y};' id = 'menu'>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un folder...</span></div>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un shortcut...</span></div>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Creaza un document...</span></div>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0; border : 1px solid #DFDFDF; border-style: outset; width : 99%' class = ' display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Terminal</span></div>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center hoverBlue folder' onclick = "console.log('ma-ta');"><span style = 'padding-left : 1.5rem;'>Creaza un folder...</span></div>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center hoverBlue shortcut'><span style = 'padding-left : 1.5rem;'>Creaza un shortcut...</span></div>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center hoverBlue document'><span style = 'padding-left : 1.5rem;'>Creaza un document...</span></div>
+        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0; border : 1px solid #DFDFDF; border-style: outset; width : 99%' class = 'hoverBlue display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Terminal</span></div>
     </div>`
 
 }
@@ -72,16 +72,15 @@ function messagebox(string, title, image, internTitle, content){
 </div>
 `
 }
-document.querySelector('.cutie').innerHTML = messagebox('idk', 'jqkwe', 'error', 'hihihi', 'hahaha');
+//document.querySelector('.cutie').innerHTML = messagebox('idk', 'jqkwe', 'error', 'hihihi', 'hahaha');
 try{
-  
-document.getElementById('fullBg').style.height = window.innerHeight + 'px';
-document.getElementById('fullBg').style.width = window.innerWidth + 'px';
+  document.getElementById('fullBg').style.height = window.innerHeight + 'px';
+  document.getElementById('fullBg').style.width = window.innerWidth + 'px';
 }
 catch{};
 
 //showing menu on clicking right button
-/*
+
 addEventListener('contextmenu', function(e){
   e.preventDefault();
   //this.alert(`${elem.clientX} si ${elem.clientY}`);
@@ -89,7 +88,7 @@ addEventListener('contextmenu', function(e){
   //console.log(x, y);
   document.getElementById('fullBg').innerHTML = menu(x, y);
 });
-*/
+
 
 //every time lister to right click
 addEventListener('click', function(e){
