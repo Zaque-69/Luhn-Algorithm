@@ -65,11 +65,14 @@ body{
     padding-left : .5rem;
 }
 *{
-    border : 1px solid red;
     font-family : PFont;
 }
 .messagebox{
     width : 20rem;
 
     background-color : #C0C0C0;
+}
+.hoverBlue:hover{
+    background-color : blue;
+    color : white;
 }
