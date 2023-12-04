@@ -1,6 +1,7 @@
 {
     "terminal" : {
-        "place" : "label2",
+        "place" : "label1",
+        "path" : "C_Users_Desktop",
         "appinfo" : "true",
         "title" : "Terminal",
         "width" : 25,
@@ -11,6 +12,7 @@
     },
     "copilasii" : {
         "place" : "label2",
+        "path" : "C_Users_Desktop",
         "appinfo" : "true",
         "title" : "Copilasii mei",
         "width" : 25,
@@ -21,6 +23,7 @@
     },
     "pcuvant" : {
         "place" : "label2",
+        "path" : "C_Users_Desktop",
         "appinfo" : "true",
         "title" : "Kuvinte cu Dahn Neegruø",
         "width" : 30,
@@ -31,6 +34,7 @@
     },
     "gta6" : {
         "place" : "label2",
+        "path" : "C_Users_Desktop",
         "appinfo" : "true",
         "title" : "GTA 6",
         "width" : 30,
@@ -41,6 +45,7 @@
     },
     "bahoiImage" : {
         "place" : "label2",
+        "path" : "C_Users_Desktop",
         "appinfo" : "true",
         "title" : "Bahoi.",
         "width" : 20,
@@ -51,6 +56,7 @@
     },
     "ppe" : {
         "place" : "label2",
+        "path" : "C_Users_Desktop",
         "appinfo" : "true",
         "title" : "iliescu",
         "width" : 30,
@@ -61,6 +67,7 @@
     },
     "GChelutzu" : {
         "place" : "label2",
+        "path" : "C_Users_Desktop",
         "appinfo" : "true",
         "title" : "Media memes",
         "width" : 45,
@@ -71,6 +78,7 @@
     },
     "iloveyou" : {
         "place" : "label2",
+        "path" : "C_Users_Desktop",
         "appinfo" : "true",
         "title" : "ILOVEYOU - Message",
         "width" : 25,
@@ -81,6 +89,7 @@
     },
     "varasimulator" : {
         "place" : "label2",
+        "path" : "C_Users_Desktop",
         "appinfo" : "false",
         "title" : "Vara Simulator",
         "width" : 30,
@@ -91,6 +100,7 @@
     },
     "credits" : {
         "place" : "label3",
+        "path" : "C_Users_Desktop",
         "appinfo" : "true",
         "title" : "Credits",
         "width" : 30,
@@ -101,6 +111,7 @@
     },
     "corabiapiratului" : {
         "place" : "label2",
+        "path" : "C_Users_Desktop",
         "appinfo" : "true",
         "title" : "Credits",
         "width" : 20,
@@ -109,18 +120,10 @@
         "icon" : "credits.png",
         "content" : "<div style = 'padding : .33rem;'><span style = 'font-size : .77rem;'>CEO : Z4que <br> Github : https://github.com/Zaque-69 <br> Video Copilasii mei : <a href = 'https://www.youtube.com/watch?v=NoTFUytUKWg'>https://www.youtube.com/watch?v=NoTFUytUKWg</a></span></div>" 
     },
-    "mypc" : {
-        "place" : "label1",
-        "appinfo" : "true",
-        "title" : "Pc",
-        "width" : 30,
-        "height" : 20,
-        "backgroundColor" : "white",
-        "icon" : "pc.png",
-        "content" : "<input>" 
-    },
+
     "manual" : {
-        "place" : "label1",
+        "place" : "label3",
+        "path" : "C_Users_Desktop",
         "appinfo" : "true",
         "title" : "Manual",
         "width" : 35,
@@ -129,4 +132,5 @@
         "icon" : "manual.png",
         "content" : "<iframe src = 'manual.html' class = 'h-100 w-100'></iframe>" 
     }
+    
 }
