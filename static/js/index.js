@@ -81,13 +81,14 @@ catch{};
 
 //showing menu on clicking right button
 
+/*
 addEventListener('contextmenu', function(e){
   e.preventDefault();
   //this.alert(`${elem.clientX} si ${elem.clientY}`);
   var x = e.clientX + 'px'; var y = e.clientY + 'px';
   //console.log(x, y);
   document.getElementById('fullBg').innerHTML = menu(x, y);
-});
+}); */
 
 
 //every time lister to right click
@@ -171,33 +172,40 @@ function makeid(length) {
 
 //3 lists : 1 for apps, 2 for icons and 3 for titles on Desktop. If you chenage the array of lists the apps on desktop will be different
 var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
-          'GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului', 'credits','mypc', 'manual'];
+          'GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului', 'credits','manual'];
 
 var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta.png', 'copilasii.png', 
-          'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','pb.png', 'credits.png', 'pc.gif', 'manual.png'];
+          'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','pb.png', 'credits.png', 'manual.png'];
 
 var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'prima poza ever cu un dinozaur',
-              'M. M.', 'ILOVEYOU', 'vara simulator', 'Corabia Piratului','Credits.txt', 'My PC', 'Manual']
+              'M. M.', 'ILOVEYOU', 'vara simulator', 'Corabia Piratului','Credits.txt',  'Manual']
 
 //this for is used in lists, fetching content fron json and display every app, so we dom't have to write manually in html. Js will do
-for( i = 0; i < apps.length; i++){
-  let j = i; 
-  fetch("static/js/local.json").then(response => response.json()).then(data => {
-    const animations = ['fadeIn', 'rotation', 'rotation2', 'translateX'];
-    //const animations2 = ['fadeOut', 'derotation', 'derotation2', 'translateX2'];
+function lol(forLEnght){
+  for( i = 0; i < forLEnght; i++){
+    let j = i; 
+    fetch("static/js/local.json").then(response => response.json()).then(data => {
+      const animations = ['fadeIn', 'rotation', 'rotation2', 'translateX'];
+      //const animations2 = ['fadeOut', 'derotation', 'derotation2', 'translateX2'];
 
-    try{
-      lab = document.createElement('div'); lab.classList.add(`${apps[j]}`);
-      document.getElementById(eval(`data.${apps[j]}.place`)).appendChild(lab);
-      document.querySelector(`.${apps[j]}`).innerHTML = mainStructure(apps[j], icons[j], titles[j], makeid(5));
-    } catch{};
+      try{
+        lab = document.createElement('div'); lab.classList.add(`${apps[j]}`);
+        //console.log(eval(`data.${apps[j]}.path`));
+        mypcApps = document.createElement('div'); mypcApps.classList.add(`${apps[j]}`, );
 
-      // calling app depends on dbclick function for desktop apps or from the menu bottom where we are using onclick function
-      function callApp(AppName){
+        document.getElementById(eval(`data.${apps[j]}.place`)).appendChild(lab);
+        document.getElementById('mypcAppsWindow').appendChild(mypcApps);
 
-        document.querySelector('.' + AppName + 'Desktop').ondblclick = function(){
-          rmString = makeid(5);
-          getJSONelement = eval(`data.${AppName}`);
+        document.querySelectorAll(`.${apps[j]}`).forEach((e) =>{
+          e.innerHTML = mainStructure(apps[j], icons[j], titles[j], makeid(5));
+        })
+      } catch{};
+
+        // calling app depends on dbclick function for desktop apps or from the menu bottom where we are using onclick function
+        function callApp(AppName){
+          document.querySelectorAll('.' + AppName + 'Desktop').forEach((e) =>{
+          e.ondblclick = function(){
+          rmString = makeid(5);  getJSONelement = eval(`data.${AppName}`);
 
           var element = document.createElement('div');
           element.classList.add('desktopApp', `${AppName}Popup`, rmString);
@@ -223,42 +231,54 @@ for( i = 0; i < apps.length; i++){
         
             element.style.border = '3px solid #D4D3D2';
             element.style.borderStyle = 'outset'; 
-        }
-            else element.innerHTML = `${getJSONelement.content}`
+          }
+              else element.innerHTML = `${getJSONelement.content}`
 
-            //these are apps that affect dirrectly the activity on desktop, the other one use iframe 
-            if(AppName == 'terminal') {
-              element.style.overflowY = 'auto';
-              element.style.overflowX = 'hidden';
-              enterTextarea();
-              
-            };
-
-            if(AppName == 'iloveyou'){
-              document.querySelector('textarea').value = returnIloveyou();
-              document.getElementById('iloveyou').onclick = function(){
-                console.log('boule');
+              //these are apps that affect dirrectly the activity on desktop, the other one use iframe 
+              if(AppName == 'terminal') {
+                element.style.overflowY = 'auto';
+                element.style.overflowX = 'hidden';
+                enterTextarea();
+                
               };
 
-            }
+              if(AppName == 'iloveyou'){
+                document.querySelector('textarea').value = returnIloveyou();
+                document.getElementById('iloveyou').onclick = function(){
+                  console.log('boule');
+                };
 
-            if(AppName == 'varasimulator') {
-              element.style.top = window.innerHeight - 350 + 'px';
-              element.style.left = window.innerWidth - 500 + 'px';
-              document.getElementById('bassAudio').play();
-              try{
-                document.getElementById('dpopa').addEventListener('onclick', function(){
-                  document.getElementById('hatz').play();
-                });
-              } catch{};
-            }
+              }
+
+              if(AppName == 'varasimulator') {
+                element.style.top = window.innerHeight - 350 + 'px';
+                element.style.left = window.innerWidth - 500 + 'px';
+                document.getElementById('bassAudio').play();
+                try{
+                  document.getElementById('dpopa').addEventListener('onclick', function(){
+                    document.getElementById('hatz').play();
+                  });
+                } catch{};
+              };
+
+              if(AppName == 'mypc'){
+                lol(apps.length, 2);
+              }
+
+
+          };
+        })
         };
-      };
+        callApp(apps[j]);
 
-      callApp(apps[j]);
+      }
+    );
+    
+  }
 
-    }
-  );
-  
 }
+lol(apps.length);
+
+
 dragElement('.desktopApp');
+document.getElementById('PC').ondblclick = function(){document.querySelector('.pcAppsWindow').style.display = 'block';};
