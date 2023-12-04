@@ -38,29 +38,32 @@
                                                                     ,....*                       
                                                                         ,,/                        
  
-                                Uindou - Z4que ALL RIGHT RESERVER
+                                Uindou - Z4que ALL RIGHT RESERVED
 -->
 <body style = "background-image : url('assets/Untitled.png'); background-repeat: no-repeat; background-position: center; overflow: hidden;">
         
     <div class = 'main'>
-        <div id = 'fullBg' style = 'position: absolute;'
-        ></div>
+        <div id = 'fullBg' style = 'position: absolute;'></div>
 
         <div class = 'heightScreen widthHalf '>
             <div  class = ' display-flex-align-items-center' style="padding-top : .33rem; padding-left: .33rem;" id = 'label1'>
     
-                  <div class = 'blockApp terminal display-flex-align-items-center-justify-content-center'>
-    
-                    <div class = 'desktopApp terminalDesktop'>
-                    <div class = 'desktopApp w-100 h-100'></div>
-                    <div class="w-100 h-100 display-flex-align-items-center-justify-content-center" style = 'flex-direction: column;'>
-                        <div class = 'w-100 display-flex-align-items-center-justify-content-center'>
-                            <img src="assets/icons/terminal.png">
+                
+
+                <div class = 'blockApp mypc display-flex-align-items-center-justify-content-center' id = 'PC'>
+                    <div class = 'desktopApp'>
+                        <div class = 'desktopApp w-100 h-100'></div>
+                        <div class="w-100 h-100 display-flex-align-items-center-justify-content-center" style = 'flex-direction: column;'>
+                            <div class = 'w-100 display-flex-align-items-center-justify-content-center'>
+                                <img src="assets/icons/pc.gif">
+                            </div>
+                            <span class = 'w-100 display-flex-align-items-center-justify-content-center' style = 'font-size: .7rem; color : white;'>PC-u meu<3</span>
                         </div>
-                        <span class = 'w-100 display-flex-align-items-center-justify-content-center' style = 'font-size: .7rem; color : white;'>Terminal</span>
-                    </div>
                     </div>
                 </div>
+
+                
+               
         
             </div>
         </div>
@@ -73,16 +76,36 @@
             
         </div>
 
+       
+
+        <div style = 'height : 20rem; width : 32rem; background-color: #C0C0C0; left : 60%; top : 15%; display : none;' class = 'desktopApp pcAppsWindow'>
+           
+            <div style = 'padding-bottom : .2rem; background-color : #D4D3D2;' >
+                <div 
+                  style = 'gap : .33rem; padding-left : .33rem; padding : .2rem; height : 1rem; background : linear-gradient(45deg, #7FA9C4, #2D536B)'
+                  class = 'display-flex-align-items-center'>
+                    <img src = 'assets/icons/pc.gif' style = 'height : 100%;'> <span style = 'width : 75%; display : flex; align-items : start;'>My Pc</span>
+                    <div class = 'w-100 display-flex-align-items-center' style = 'justify-content : right; padding-right : .33rem'>
+                      <button class = 'mypcClose' onclick = "document.querySelector('.pcAppsWindow').style.display = 'none';"> x </button>
+                    </div>
+                  </div>
+                </div>
+
+            <div id = 'mypcAppsWindow' class = 'display-flex-align-items-center-justify-content-center' 
+            style = '  border : 1px solid red; padding : .33rem; gap : .33rem; flex-wrap: wrap; left : 60%; top : 15%; '>
+
+            </div>
+        </div>
+
+        
+
+        <!--Here are stores the windows when you double click on an app -->
         <div class = 'popupLocation'></div>
 
-
-        <div class = 'cutie'></div>
-
     </div>
-    
 
 
-    <div style = ' position : absolute; height : 32px; background-color: #C0C0C0; border : 2px solid #DFDFDF; border-style: outset; display : flex; align-items: center; padding-left: .33rem;' class = 'w-100'>
+    <div style = ' position : absolute; height : 32px; background-color: #C0C0C0; border : 2px solid #DFDFDF; border-style: outset; display : flex; align-items: center; padding-left: .33rem;' class = 'w-100 ' >
         <div style = 'height : 80%; width : 5rem; background-color: beige;' class = 'display-flex-align-items-center-justify-content-center'>Uindou</div>
     </div>
 
