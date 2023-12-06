@@ -42,10 +42,10 @@ coming from me. `
 function menu(x, y){
   return`
     <div style = 'width : 10rem;  border : 2px solid #DFDFDF; border-style: outset; position : relative; left : ${x}; top : ${y};' id = 'menu'>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center hoverBlue folder' onclick = "console.log('ma-ta');"><span style = 'padding-left : 1.5rem;'>Creaza un folder...</span></div>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center hoverBlue shortcut'><span style = 'padding-left : 1.5rem;'>Creaza un shortcut...</span></div>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0;' class = 'w-100 display-flex align-items-center hoverBlue document'><span style = 'padding-left : 1.5rem;'>Creaza un document...</span></div>
-        <div style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0; border : 1px solid #DFDFDF; border-style: outset; width : 99%' class = 'hoverBlue display-flex align-items-center'><span style = 'padding-left : 1.5rem;'>Terminal</span></div>
+      <div class = 'createFolder display-flex align-items-center hoverBlue folder' style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0; justify-content : start;' onclick = "createDocumentOrShortcut();"><span class = 'w-100 hoverBlue display-flex' style = 'padding-left : 1.5rem; justify-content : start;'>Creaza un folder...</span></div>  
+      <div class = ' display-flex align-items-center hoverBlue folder' style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0; justify-content : start;'><span class = 'w-100 hoverBlue display-flex' style = 'padding-left : 1.5rem; justify-content : start;'>Creaza un shortcut...</span></div>
+      <div class = ' display-flex align-items-center hoverBlue folder' style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0; justify-content : start;' ><span class = 'w-100 hoverBlue display-flex' style = 'padding-left : 1.5rem; justify-content : start;'>Creaza un document...</span></div>
+      <div class = ' display-flex align-items-center hoverBlue folder' style = 'font-size: .8rem; height: 1.33rem; background-color: #C0C0C0; justify-content : start; border : 1px solid #DFDFDF; border-style: outset; width : 99%'' onclick = "console.log('ma-ta');"><span class = 'w-100 hoverBlue display-flex' style = 'padding-left : 1.5rem; justify-content : start;'>Terminal</span></div>
     </div>`
 
 }
@@ -81,14 +81,14 @@ catch{};
 
 //showing menu on clicking right button
 
-/*
-addEventListener('contextmenu', function(e){
+
+  addEventListener('contextmenu', function(e){
   e.preventDefault();
   //this.alert(`${elem.clientX} si ${elem.clientY}`);
-  var x = e.clientX + 'px'; var y = e.clientY + 'px';
+  var x = e.clientX + 'px'; var y = e.clientY - 220 +  'px';
   //console.log(x, y);
   document.getElementById('fullBg').innerHTML = menu(x, y);
-}); */
+}); 
 
 
 //every time lister to right click
@@ -172,17 +172,17 @@ function makeid(length) {
 
 //3 lists : 1 for apps, 2 for icons and 3 for titles on Desktop. If you chenage the array of lists the apps on desktop will be different
 var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
-          'GChelutzu', 'iloveyou', 'varasimulator', 'corabiapiratului', 'credits','manual'];
+          'GChelutzu', 'iloveyou', 'varasimulator',  'credits','manual', 'empty'];
 
 var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta.png', 'copilasii.png', 
-          'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','pb.png', 'credits.png', 'manual.png'];
+          'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','credits.png', 'manual.png', 'empty.png'];
 
 var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'prima poza ever cu un dinozaur',
-              'M. M.', 'ILOVEYOU', 'vara simulator', 'Corabia Piratului','Credits.txt',  'Manual']
+              'M. M.', 'ILOVEYOU', 'vara simulator','Credits.txt',  'Manual', '']
 
 //this for is used in lists, fetching content fron json and display every app, so we dom't have to write manually in html. Js will do
-function lol(forLEnght){
-  for( i = 0; i < forLEnght; i++){
+
+  for( i = 0; i < apps.length; i++){
     let j = i; 
     fetch("static/js/local.json").then(response => response.json()).then(data => {
       const animations = ['fadeIn', 'rotation', 'rotation2', 'translateX'];
@@ -275,10 +275,29 @@ function lol(forLEnght){
     );
     
   }
-
-}
-lol(apps.length);
-
-
 dragElement('.desktopApp');
 document.getElementById('PC').ondblclick = function(){document.querySelector('.pcAppsWindow').style.display = 'block';};
+
+//date function
+let date = new Date();
+document.querySelector('.date').innerHTML = date.toLocaleDateString(), date.getHours();
+
+function updateTime() {
+  let date = new Date();
+  document.querySelector('.year').innerHTML = date.getFullYear() + " / " + date.getMonth() + " / " + date.getDay();
+  document.querySelector('.date').innerHTML = date.getHours() + " : " + date.getMinutes() + " : " + date.getSeconds();
+}
+
+setInterval(updateTime, 1000); 
+
+function redirectURL(block, url){
+  return`
+  <a href = "${url}">
+    ${block}
+  </a> `
+}
+
+function createDocumentOrShortcut(){
+  let base = document.createElement('div'); base.classList.add("desktopApp");
+  document.getElementById('label4').appendChild(base).innerHTML = redirectURL(mainStructure("shorrtcut", "credits.png", "Idk", "pwhw"), "https://example.com")
+};
