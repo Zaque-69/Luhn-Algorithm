@@ -43,7 +43,7 @@
 <body style = "background-image : url('assets/Untitled.png'); background-repeat: no-repeat; background-position: center; overflow: hidden;">
         
     <div class = 'main'>
-        <div id = 'fullBg' style = 'position: absolute;'></div>
+        
 
         <div class = 'heightScreen widthHalf '>
             <div  class = ' display-flex-align-items-center' style="padding-top : .33rem; padding-left: .33rem;" id = 'label1'>
@@ -76,7 +76,9 @@
             
         </div>
 
-       
+        <div class = 'heightScreen widthHalf '>
+            <div class = ' display-flex-align-items-center' style="padding-top : .33rem; padding-left: .33rem;" id = 'label4'></div>
+        </div>
 
         <div style = 'height : 20rem; width : 32rem; background-color: #C0C0C0; left : 60%; top : 15%; display : none;' class = 'desktopApp pcAppsWindow'>
            
@@ -100,13 +102,21 @@
         
 
         <!--Here are stores the windows when you double click on an app -->
+        <div id = 'fullBg' style = 'position: absolute;'></div>
         <div class = 'popupLocation'></div>
-
+        
     </div>
 
 
     <div style = ' position : absolute; height : 32px; background-color: #C0C0C0; border : 2px solid #DFDFDF; border-style: outset; display : flex; align-items: center; padding-left: .33rem;' class = 'w-100 ' >
         <div style = 'height : 80%; width : 5rem; background-color: beige;' class = 'display-flex-align-items-center-justify-content-center'>Uindou</div>
+        <div class = 'w-100 ' style = 'display: flex; align-items: center; justify-content: end;'>
+            <div class = 'h-100 display-flex' style = 'padding-right : .33rem; align-items: center;'>
+                <span class = 'date display-flex-align-items-center-justify-content-center' ></span> -  <span class = 'year' style = 'padding-right: 1rem;'></span>
+            </div>
+
+        </div>
+
     </div>
 
 
