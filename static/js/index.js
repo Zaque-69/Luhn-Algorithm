@@ -174,15 +174,16 @@ function makeid(length) {
 
 //3 lists : 1 for apps, 2 for icons and 3 for titles on Desktop. If you chenage the array of lists the apps on desktop will be different
 var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
-          'GChelutzu', 'iloveyou', 'varasimulator',  'credits','manual', 'empty',
-        "index"];
+          'GChelutzu', 'iloveyou', 'varasimulator',  'credits','guide', 'empty', 'assets', 'PCuvantFolder', 'chelutzuFolder', 
+        "index", ];
 
 var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta.png', 'copilasii.png', 
-          'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','credits.png', 'manual.png', 'folder.png',
-        "html.png"];
+          'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','credits.png', 'manual.png', 'folder.png', 'folder.png', 'folder.png', 'folder.png', 
+        "html.png",];
 
 var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'prima poza ever cu un dinozaur',
-              'M. M.', 'ILOVEYOU', 'vara simulator','Credits.txt',  'Manual', 'static', 'index.html']
+              'M. M.', 'ILOVEYOU', 'vara simulator','Credits.txt',  'Guide', 'static', 'assets', 'PCuvant', 'chelutzu',  
+              'index.html', ]
 
 //this for is used in lists, fetching content fron json and display every app, so we dom't have to write manually in html. Js will do
 
@@ -198,7 +199,7 @@ var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'pr
         mypcApps = document.createElement('div'); mypcApps.classList.add(`${apps[j]}`, "mypcAppsWindowIcon", );
 
         if(Boolean(eval(`data.${apps[j]}.place`))) document.getElementById(eval(`data.${apps[j]}.place`)).appendChild(lab);
-        document.getElementById('mypcAppsWindow').appendChild(mypcApps);
+        document.querySelector('.mypcAppsWindow').appendChild(mypcApps);
 
         document.querySelectorAll(`.${apps[j]}`).forEach((e) =>{
           e.innerHTML = mainStructure(apps[j], icons[j], titles[j], makeid(5));
@@ -315,51 +316,4 @@ function createDocumentOrShortcut(e){
   })
   var createSpace = document.getElementById('label3').appendChild(base);
   createSpace.innerHTML = redirectURL(mainStructure("shorrtcut", "credits.png", "Idk", "pwhw"), "https://example.com")
-};
-
-
-  document.getElementById('mypcInput').addEventListener("keypress", function(event) {
-
-      if (event.key === "Enter"){ 
-       console.log('ceva')
-    }
-  });
-
-
-  
-  let dataGlobal, globalList = [];
-
-  const getData = async () => {
-    const response = await fetch("static/js/local.json");
-    const data = await response.json();
-    dataGlobal = data;
-    return data;
-  };
-  
-  (async () => {
-    await getData();
-    for(let i = 0; i < apps.length; i++) {
-      element = apps[i]
-      globalList.push(eval(`dataGlobal.${apps[i]}.path`));
-    }
-  })();
-
-
-//console.log(globalList)
-
-var count = 0;
-
-document.getElementById('PC').ondblclick = function(){
-  
-  document.querySelector('.pcAppsWindow').style.display = 'block';
-  document.querySelector('.empty').ondblclick = function()
-  {
-    document.getElementById('mypcAppsWindow').querySelectorAll('.label2').forEach((e) => { 
-      e.style.display = 'none'; 
-    });
-  }
-  document.querySelectorAll('.mypcAppsWindowIcon').forEach((e) =>{
-   e.classList.add(globalList[count]); count++;
-  })
-
 };
