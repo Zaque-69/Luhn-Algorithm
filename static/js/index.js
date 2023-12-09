@@ -82,13 +82,15 @@ catch{};
 //showing menu on clicking right button
 
 
-  addEventListener('contextmenu', function(e){
+/**
+ * addEventListener('contextmenu', function(e){
   e.preventDefault();
   //this.alert(`${elem.clientX} si ${elem.clientY}`);
-  var x = e.clientX + 'px'; var y = e.clientY - 220 +  'px';
+  var x = e.clientX + 'px'; var y = e.clientY - 320 +  'px';
+  
   //console.log(x, y);
   document.getElementById('fullBg').innerHTML = menu(x, y);
-}); 
+}) */; 
 
 
 //every time lister to right click
@@ -172,13 +174,15 @@ function makeid(length) {
 
 //3 lists : 1 for apps, 2 for icons and 3 for titles on Desktop. If you chenage the array of lists the apps on desktop will be different
 var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
-          'GChelutzu', 'iloveyou', 'varasimulator',  'credits','manual', 'empty'];
+          'GChelutzu', 'iloveyou', 'varasimulator',  'credits','manual', 'empty',
+        "index"];
 
 var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta.png', 'copilasii.png', 
-          'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','credits.png', 'manual.png', 'empty.png'];
+          'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','credits.png', 'manual.png', 'folder.png',
+        "html.png"];
 
 var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'prima poza ever cu un dinozaur',
-              'M. M.', 'ILOVEYOU', 'vara simulator','Credits.txt',  'Manual', '']
+              'M. M.', 'ILOVEYOU', 'vara simulator','Credits.txt',  'Manual', 'static', 'index.html']
 
 //this for is used in lists, fetching content fron json and display every app, so we dom't have to write manually in html. Js will do
 
@@ -191,9 +195,9 @@ var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'pr
       try{
         lab = document.createElement('div'); lab.classList.add(`${apps[j]}`);
         //console.log(eval(`data.${apps[j]}.path`));
-        mypcApps = document.createElement('div'); mypcApps.classList.add(`${apps[j]}`, );
+        mypcApps = document.createElement('div'); mypcApps.classList.add(`${apps[j]}`, "mypcAppsWindowIcon", );
 
-        document.getElementById(eval(`data.${apps[j]}.place`)).appendChild(lab);
+        if(Boolean(eval(`data.${apps[j]}.place`))) document.getElementById(eval(`data.${apps[j]}.place`)).appendChild(lab);
         document.getElementById('mypcAppsWindow').appendChild(mypcApps);
 
         document.querySelectorAll(`.${apps[j]}`).forEach((e) =>{
@@ -205,24 +209,37 @@ var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'pr
         function callApp(AppName){
           document.querySelectorAll('.' + AppName + 'Desktop').forEach((e) =>{
           e.ondblclick = function(){
-          rmString = makeid(5);  getJSONelement = eval(`data.${AppName}`);
 
-          var element = document.createElement('div');
-          element.classList.add('desktopApp', `${AppName}Popup`, rmString);
+          rmString = makeid(5);  
+          getJSONelement = eval(`data.${AppName}`);
 
-          document.querySelector('.popupLocation').appendChild(element);
-          element.style.display = 'block';
+          //add classlist path app in mypc
+
+          if(getJSONelement.DesktopApp == 'true') {
+            var element = document.createElement('div');
+            element.classList.add('desktopApp', `${AppName}Popup`, rmString);
+            document.querySelector('.popupLocation').appendChild(element);
+            element.style.display = 'block';
+          }
+            
           
-          element.style.width = (getJSONelement.width) + 'rem'; 
-          element.style.height = (getJSONelement.height ) + 'rem'; 
-          element.style.overflow = 'hidden'; 
-          element.style.animation = `${animations[Math.floor(Math.random()*animations.length)]}  .5s`; 
-          if(AppName != 'varasimulator') element.style.boxShadow = '.33rem .33rem 10rem  #34585C';
+          try
+          {
+            element.style.width = (getJSONelement.width) + 'rem'; 
+            element.style.height = (getJSONelement.height ) + 'rem'; 
+            element.style.overflow = 'hidden'; 
+            element.style.animation = `${animations[Math.floor(Math.random()*animations.length)]}  .5s`; 
+            if(AppName != 'varasimulator') element.style.boxShadow = '.33rem .33rem 10rem  #34585C';
 
-          element.style.backgroundColor = getJSONelement.backgroundColor;
-          element.style.top = (getRandomArbitrary(window.innerHeight * 0.25, window.innerHeight * 0.3)) + 'px';
-          element.style.left = (getRandomArbitrary(window.innerWidth * 0.25, window.innerWidth * 0.75)) + 'px';
-          var icon = getJSONelement.icon; var title = getJSONelement.title;
+            element.style.backgroundColor = getJSONelement.backgroundColor;
+            element.style.top = (getRandomArbitrary(window.innerHeight * 0.25, window.innerHeight * 0.3)) + 'px';
+            element.style.left = (getRandomArbitrary(window.innerWidth * 0.25, window.innerWidth * 0.75)) + 'px';
+            var icon = getJSONelement.icon; var title = getJSONelement.title;
+          }
+
+          catch{
+
+          }
 
           dragElement('.desktopApp');
 
@@ -232,7 +249,7 @@ var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'pr
             element.style.border = '3px solid #D4D3D2';
             element.style.borderStyle = 'outset'; 
           }
-              else element.innerHTML = `${getJSONelement.content}`
+              else try{element.innerHTML = `${getJSONelement.content}`} catch{};
 
               //these are apps that affect dirrectly the activity on desktop, the other one use iframe 
               if(AppName == 'terminal') {
@@ -265,30 +282,24 @@ var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'pr
                 lol(apps.length, 2);
               }
 
+              if(AppName == 'static') console.log('cae');
 
-          };
-        })
+            };
+          })
         };
         callApp(apps[j]);
-
       }
     );
-    
   }
 dragElement('.desktopApp');
-document.getElementById('PC').ondblclick = function(){document.querySelector('.pcAppsWindow').style.display = 'block';};
 
 //date function
+
 let date = new Date();
+
 document.querySelector('.date').innerHTML = date.toLocaleDateString(), date.getHours();
-
-function updateTime() {
-  let date = new Date();
-  document.querySelector('.year').innerHTML = date.getFullYear() + " / " + date.getMonth() + " / " + date.getDay();
-  document.querySelector('.date').innerHTML = date.getHours() + " : " + date.getMinutes() + " : " + date.getSeconds();
-}
-
-setInterval(updateTime, 1000); 
+document.querySelector('.year').innerHTML = date.getFullYear() + " / " + date.getMonth() + " / " + date.getDay();
+document.querySelector('.date').innerHTML = date.getHours() + " : " + date.getMinutes() + " : " + date.getSeconds();
 
 function redirectURL(block, url){
   return`
@@ -297,7 +308,58 @@ function redirectURL(block, url){
   </a> `
 }
 
-function createDocumentOrShortcut(){
-  let base = document.createElement('div'); base.classList.add("desktopApp");
-  document.getElementById('label4').appendChild(base).innerHTML = redirectURL(mainStructure("shorrtcut", "credits.png", "Idk", "pwhw"), "https://example.com")
+function createDocumentOrShortcut(e){
+  let base = document.createElement('div'); base.classList.add("desktopApp"); 
+  addEventListener('contextmenu', function(e){
+    console.log(e.clientX, e.clientY);
+  })
+  var createSpace = document.getElementById('label3').appendChild(base);
+  createSpace.innerHTML = redirectURL(mainStructure("shorrtcut", "credits.png", "Idk", "pwhw"), "https://example.com")
+};
+
+
+  document.getElementById('mypcInput').addEventListener("keypress", function(event) {
+
+      if (event.key === "Enter"){ 
+       console.log('ceva')
+    }
+  });
+
+
+  
+  let dataGlobal, globalList = [];
+
+  const getData = async () => {
+    const response = await fetch("static/js/local.json");
+    const data = await response.json();
+    dataGlobal = data;
+    return data;
+  };
+  
+  (async () => {
+    await getData();
+    for(let i = 0; i < apps.length; i++) {
+      element = apps[i]
+      globalList.push(eval(`dataGlobal.${apps[i]}.path`));
+    }
+  })();
+
+
+//console.log(globalList)
+
+var count = 0;
+
+document.getElementById('PC').ondblclick = function(){
+  
+  document.querySelector('.pcAppsWindow').style.display = 'block';
+  document.querySelector('.empty').ondblclick = function()
+  {
+    document.getElementById('mypcAppsWindow').querySelectorAll('.label2').forEach((e) => { 
+      e.style.display = 'none'; 
+    });
+  }
+  document.querySelectorAll('.mypcAppsWindowIcon').forEach((e) =>{
+   e.classList.add(globalList[count]); count++;
+  })
+
 };
