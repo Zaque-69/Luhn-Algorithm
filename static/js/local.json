@@ -1,7 +1,7 @@
 {
     "terminal" : {
         "place" : "label1",
-        "path" : "Program_Files_Desktop",
+        "path" : "ProgramFiles_Desktop",
         "DesktopApp" : "true",
         "appinfo" : "true",
         "title" : "Terminal",
@@ -13,7 +13,7 @@
     },
     "copilasii" : {
         "place" : "label2",
-        "path" : "Program_Files_Desktop",
+        "path" : "ProgramFiles_Desktop",
         "DesktopApp" : "true",
         "appinfo" : "true",
         "title" : "Copilasii mei",
@@ -25,7 +25,7 @@
     },
     "pcuvant" : {
         "place" : "label2",
-        "path" : "Program_Files_Desktop",
+        "path" : "ProgramFiles_Desktop",
         "DesktopApp" : "true",
         "appinfo" : "true",
         "title" : "Kuvinte cu Dahn Neegruø",
@@ -37,7 +37,7 @@
     },
     "gta6" : {
         "place" : "label2",
-        "path" : "Program_Files_Desktop",
+        "path" : "ProgramFiles_Desktop",
         "DesktopApp" : "true",
         "appinfo" : "true",
         "title" : "GTA 6",
@@ -49,7 +49,7 @@
     },
     "bahoiImage" : {
         "place" : "label2",
-        "path" : "Program_Files_Desktop",
+        "path" : "ProgramFiles_Desktop",
         "DesktopApp" : "true",
         "appinfo" : "true",
         "title" : "Bahoi.",
@@ -61,7 +61,7 @@
     },
     "ppe" : {
         "place" : "label2",
-        "path" : "Program_Files_Desktop",
+        "path" : "ProgramFiles_Desktop",
         "DesktopApp" : "true",
         "appinfo" : "true",
         "title" : "iliescu",
@@ -73,7 +73,7 @@
     },
     "GChelutzu" : {
         "place" : "label2",
-        "path" : "Program_Files_chelutzu",
+        "path" : "ProgramFiles_chelutzu",
         "DesktopApp" : "true",
         "appinfo" : "true",
         "title" : "Media memes",
@@ -85,7 +85,7 @@
     },
     "iloveyou" : {
         "place" : "label2",
-        "path" : "Program_Files_Desktop",
+        "path" : "ProgramFiles_Desktop",
         "DesktopApp" : "true",
         "appinfo" : "true",
         "title" : "ILOVEYOU - Message",
@@ -97,7 +97,7 @@
     },
     "varasimulator" : {
         "place" : "label2",
-        "path" : "Program_Files_Desktop",
+        "path" : "ProgramFiles_Desktop",
         "DesktopApp" : "true",
         "appinfo" : "false",
         "title" : "Vara Simulator",
@@ -109,7 +109,7 @@
     },
     "credits" : {
         "place" : "label3",
-        "path" : "Program_Files",
+        "path" : "ProgramFiles",
         "DesktopApp" : "true",
         "appinfo" : "true",
         "title" : "Credits",
@@ -121,7 +121,7 @@
     },
     "guide" : {
         "place" : "label3",
-        "path" : "Program_Files",
+        "path" : "ProgramFiles",
         "DesktopApp" : "true",
         "appinfo" : "true",
         "title" : "Manual",
@@ -131,30 +131,31 @@
         "icon" : "manual.png",
         "content" : "<iframe src = 'manual.html' class = 'h-100 w-100'></iframe>" 
     },
+    
     "PCuvantFolder" : {
-        "path" : "Program_Files",
-        "DesktopApp" : "false",
-        "appinfo" : "false"
+        "path" : "ProgramFiles"
     },
     "chelutzuFolder" : {
-        "path" : "Program_Files",
-        "DesktopApp" : "false",
-        "appinfo" : "false"
+        "path" : "ProgramFiles"
     },
     "empty" : {
-        "path" : "Program_Files",
-        "DesktopApp" : "false",
-        "appinfo" : "false"
+        "path" : "ProgramFiles"
     },
     "assets" : {
-        "path" : "Program_Files",
-        "DesktopApp" : "false",
-        "appinfo" : "false"
+        "path" : "ProgramFiles"
     },
     "index" : {
-        "path" : "Program_Files",
-        "DesktopApp" : "false",
-        "appinfo" : "false"
+        "path" : "ProgramFiles"
+    },
+    "chelutzu_assets" : {
+        "path" : "ProgramFiles_chelutzu"
+    }, 
+    "ciordeala" : {
+        "path" : "ProgramFiles_chelutzu_assets"
+
+    },
+    "doriabi" : {
+        "path" : "ProgramFiles_chelutzu_assets"
     }
     
 }
