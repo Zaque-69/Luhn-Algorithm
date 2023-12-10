@@ -19,25 +19,44 @@ var count = 0;
 
 
 document.getElementById('PC').ondblclick = function(){
+  //inner in input 
+    //document.getElementById('mypcInput').value = 'C:/'
+
+
     document.querySelector('.pcAppsWindow').style.display = 'block';
    
-    function sortElements(displayBlock, displayNone){
-        document.querySelectorAll(displayBlock).forEach((e) => { e.style.display = 'block'; } )
-        document.querySelectorAll(displayNone).forEach((e) => { e.style.display = 'none'; } )
+    function sortElements(displayBlock){
+      document.querySelectorAll('.mypcAppsWindowIcon ').forEach((e) => { e.style.display = 'none'; } )
+      document.querySelectorAll('.' + displayBlock).forEach((e) => { e.style.display = 'block'; } )
+      document.getElementById('mypcInput').value = displayBlock.replaceAll('_', '/')
+        
     }
 
     document.querySelectorAll('.mypcAppsWindowIcon').forEach((e) =>{
     e.classList.add(globalList[count]); count++;
     })
+    document.getElementById('mypcInput').value = "ProgramFiles"
+    document.querySelector('.mypcAppsWindow').querySelectorAll('.ProgramFiles').forEach((e) => { e.style.display = 'block'; })
 
-    document.querySelector('.mypcAppsWindow').querySelectorAll('.Program_Files').forEach((e) => { e.style.display = 'block'; })
+    //folders
+    document.querySelector('.chelutzuFolder').ondblclick = function(){sortElements('ProgramFiles_chelutzu')}
+    document.querySelector('.chelutzu_assets').ondblclick = function(){sortElements('ProgramFiles_chelutzu_assets')}
 
-    document.querySelector('.chelutzuFolder').ondblclick = function(){sortElements('.Program_Files_chelutzu', '.Program_Files')}
+    //images
+    document.querySelector('.ciordeala').onclick = function(){
+      console.log('ceva')
+      document.querySelector('.ciordeala').setAttribute('href', 'chelutzu/assets/ciordeala.jpg')
+    }
+
 
 
 
     //input
     document.getElementById('mypcInput').addEventListener('keypress', function(event){
-        if( event.key === 'Enter' ) sortElements
+        if( event.key === 'Enter' ) {
+          let IDval = document.getElementById('mypcInput').value.replaceAll('/', '_');
+          sortElements(IDval);
+        }
     })
 };
+console.log('acacacac'.replaceAll('a', 'f'))
