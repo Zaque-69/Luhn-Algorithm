@@ -48,10 +48,6 @@ document.getElementById('PC').ondblclick = function(){
       document.querySelector('.ciordeala').setAttribute('href', 'chelutzu/assets/ciordeala.jpg')
     }
 
-
-
-
-    //input
     document.getElementById('mypcInput').addEventListener('keypress', function(event){
         if( event.key === 'Enter' ) {
           let IDval = document.getElementById('mypcInput').value.replaceAll('/', '_');
