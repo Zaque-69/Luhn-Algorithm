@@ -19,9 +19,8 @@ var count = 0;
 
 
 document.getElementById('PC').ondblclick = function(){
-  //inner in input 
-    //document.getElementById('mypcInput').value = 'C:/'
-
+    const animations = ['fadeIn', 'rotation', 'rotation2', 'translateX'];
+    document.querySelector('.pcAppsWindow').style.animation = `${animations[Math.floor(Math.random()*animations.length)]}  .5s`;
 
     document.querySelector('.pcAppsWindow').style.display = 'block';
    
@@ -48,11 +47,14 @@ document.getElementById('PC').ondblclick = function(){
       document.querySelector('.ciordeala').setAttribute('href', 'chelutzu/assets/ciordeala.jpg')
     }
 
-    document.getElementById('mypcInput').addEventListener('keypress', function(event){
-        if( event.key === 'Enter' ) {
-          let IDval = document.getElementById('mypcInput').value.replaceAll('/', '_');
+    function filterAppsMyPc(){
+        let IDval = document.getElementById('mypcInput').value.replaceAll('/', '_');
           sortElements(IDval);
-        }
+    }
+
+    //inputs
+    document.querySelector('.goButton').addEventListener('click', (event) => filterAppsMyPc());
+    document.getElementById('mypcInput').addEventListener('keypress', function(event){
+        if( event.key === 'Enter' ) filterAppsMyPc();
     })
 };
-console.log('acacacac'.replaceAll('a', 'f'))
