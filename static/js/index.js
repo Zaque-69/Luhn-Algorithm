@@ -277,14 +277,7 @@ var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'pr
                     document.getElementById('hatz').play();
                   });
                 } catch{};
-              };
-
-              if(AppName == 'mypc'){
-                lol(apps.length, 2);
-              }
-
-              if(AppName == 'static') console.log('cae');
-
+              };              
             };
           })
         };
