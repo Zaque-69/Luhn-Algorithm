@@ -66,6 +66,7 @@ body{
 }
 *{
     font-family : PFont;
+    border : 1px solid red;
 }
 .messagebox{
     width : 20rem;
@@ -76,9 +77,15 @@ body{
     background-color : blue;
     color : white;
 }
-*{
-    border : 1px solid red;
-}
+
 .mypcAppsWindowIcon{
     display : none;
+}
+
+.baisicButton{
+    background-color : #C0C0C0;
+    border : 2px solid white;
+    color : black;
+    padding : .33rem;
+    border-style : outset;
 }
