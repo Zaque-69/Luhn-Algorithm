@@ -175,15 +175,15 @@ function makeid(length) {
 //3 lists : 1 for apps, 2 for icons and 3 for titles on Desktop. If you chenage the array of lists the apps on desktop will be different
 var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
           'GChelutzu', 'iloveyou', 'varasimulator',  'credits','guide', 'empty', 'assets', 'PCuvantFolder', 'chelutzuFolder', 
-        "index", ];
+        "index", "chelutzu_assets", "ciordeala", "doriabi"];
 
 var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta.png', 'copilasii.png', 
           'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','credits.png', 'manual.png', 'folder.png', 'folder.png', 'folder.png', 'folder.png', 
-        "html.png",];
+        "html.png", "folder.png", "image.png", "image.png"];
 
 var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'prima poza ever cu un dinozaur',
               'M. M.', 'ILOVEYOU', 'vara simulator','Credits.txt',  'Guide', 'static', 'assets', 'PCuvant', 'chelutzu',  
-              'index.html', ]
+              'index.html', 'assets', 'ciordeala.png', "doriabi.png"]
 
 //this for is used in lists, fetching content fron json and display every app, so we dom't have to write manually in html. Js will do
 
@@ -311,9 +311,6 @@ function redirectURL(block, url){
 
 function createDocumentOrShortcut(e){
   let base = document.createElement('div'); base.classList.add("desktopApp"); 
-  addEventListener('contextmenu', function(e){
-    console.log(e.clientX, e.clientY);
-  })
   var createSpace = document.getElementById('label3').appendChild(base);
   createSpace.innerHTML = redirectURL(mainStructure("shorrtcut", "credits.png", "Idk", "pwhw"), "https://example.com")
 };
