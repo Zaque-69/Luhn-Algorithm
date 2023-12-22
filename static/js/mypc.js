@@ -12,6 +12,7 @@ let dataGlobal, globalList = [];
     for(let i = 0; i < apps.length; i++) {
       element = apps[i]
       globalList.push(eval(`dataGlobal.${apps[i]}.path`));
+      
     }
   })();
 
