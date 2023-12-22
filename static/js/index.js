@@ -82,15 +82,15 @@ catch{};
 //showing menu on clicking right button
 
 
-/**
- * addEventListener('contextmenu', function(e){
+
+  addEventListener('contextmenu', function(e){
   e.preventDefault();
   //this.alert(`${elem.clientX} si ${elem.clientY}`);
   var x = e.clientX + 'px'; var y = e.clientY - 320 +  'px';
   
   //console.log(x, y);
   document.getElementById('fullBg').innerHTML = menu(x, y);
-}) */; 
+}) 
 
 
 //every time lister to right click
@@ -151,13 +151,25 @@ function moveDPopa(){
 
 //function for terminal commands when you enter something
 function enterTextarea(){
-  document.getElementById('terminalInput').addEventListener("keypress", function(event) {
+  console.log(terminalInput.value);
+  terminalInput = document.getElementById('terminalInput')
+  terminalInput.addEventListener("keypress", function(event) {
       var prevCommand = document.createElement('div'); prevCommand.style.paddingLeft = '.33rem';
-      prevCommand.innerHTML = document.getElementById('terminalInput').value;
-      if ((event.key === "Enter") && document.getElementById('terminalInput').value != ''){ 
+      prevCommand.innerHTML = terminalInput.value;
+      if ((event.key === "Enter") && terminalInput.value != ''){ 
+        switch ( terminalInput.value ){
+          case "3d":
+            let img = document.createElement('img'); 
+            img.setAttribute('src', 'assets/gallery/3.gif');
+            img.setAttribute('id', 'img3d');
+            img.setAttribute('onclick', 'document.getElementById("img3d").remove();');
+            document.getElementById('beforeMain').appendChild(img)
+        }
+        
+        
         document.getElementById('pastDiv').appendChild(prevCommand);
-        createApp(document.getElementById('terminalInput').value);
-        document.getElementById('terminalInput').value = '';
+        createApp(terminalInput.value);
+        terminalInput.value = '';
     }
   });
 }
@@ -257,6 +269,7 @@ var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'pr
                 element.style.overflowY = 'auto';
                 element.style.overflowX = 'hidden';
                 enterTextarea();
+                //terminalInput
                 
               };
 
