@@ -9,7 +9,7 @@
         "height" : 15,
         "backgroundColor" : "black",
         "icon" : "terminal.png",
-        "content" : "<div class = 'w-100' id = 'pastDiv' style = 'color : white;padding : .2rem;'></div><div style = 'padding : .2rem; color : white; '>Bun venit pe Uindou ! :)<div><div class = 'w-100' style = 'display : flex; padding : .2rem;'><span style = 'color : white; height : .67rem;' class = 'daj'><small>></small></span><input id = 'terminalInput' class = 'w-100' style = 'color : white; font-size : 1rem; outline : none; border : none; background-color : black; '></div>" 
+        "content" : "<div style = 'padding : .2rem; color : white; '>Bun venit pe Uindou ! :)<div><div class = 'w-100' id = 'pastDiv' style = 'color : white; '></div><div class = 'w-100' style = 'display : flex; padding : .2rem;'><span style = 'color : white; height : .67rem;' class = 'daj'><small>></small></span><input id = 'terminalInput' class = 'w-100' style = 'color : white; font-size : 1rem; outline : none; border : none; background-color : black; '></div>" 
     },
     "copilasii" : {
         "place" : "label2",
@@ -130,6 +130,18 @@
         "backgroundColor" : "white",
         "icon" : "manual.png",
         "content" : "<iframe src = 'manual.html' class = 'h-100 w-100'></iframe>" 
+    },
+    "str3su" : {
+        "place" : "label3",
+        "path" : "ceav",
+        "DesktopApp" : "true",
+        "appinfo" : "true",
+        "title" : "Manual",
+        "width" : 60,
+        "height" : 40,
+        "backgroundColor" : "white",
+        "icon" : "manual.png",
+        "content" : "<iframe src = 'str3su/index.html' class = 'h-100 w-100'></iframe>" 
     },
     
     "PCuvantFolder" : {
