@@ -1,4 +1,6 @@
-<img width="400" alt="webui" src="https://github.com/Zaque-69/Uindou/blob/main/assets/Untitled.png">
+<p align = "center">
+  <img width="300" alt="webui" src="https://github.com/Zaque-69/Uindou/blob/main/assets/Untitled.png">
+</p>
 
 # What is Uindou?
 
