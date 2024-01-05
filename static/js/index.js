@@ -6,7 +6,7 @@ function mainStructure(elem, elem2, elem3, removeStr){
               <div class = 'desktopApp w-100 h-100'></div>
           <div class="w-100 h-100 display-flex-align-items-center-justify-content-center" style = 'flex-direction: column;'>
               <div class = 'w-100 display-flex-align-items-center-justify-content-center'>
-                  <img src="assets/icons/${elem2}" style = 'height : 2rem; '>
+                  <img src="assets/icons/${elem2}" style = 'height : 2.33rem; '>
               </div>
               <span class = 'w-100 display-flex-align-items-center-justify-content-center' style = 'font-size: .7rem; color : white;'>${elem3}</span>
           </div>
@@ -79,10 +79,9 @@ try{
 }
 catch{};
 
-//showing menu on clicking right button
+//showing menu on clicking right buttonF
 
-
-
+/*
   addEventListener('contextmenu', function(e){
   e.preventDefault();
   //this.alert(`${elem.clientX} si ${elem.clientY}`);
@@ -90,7 +89,7 @@ catch{};
   
   //console.log(x, y);
   document.getElementById('fullBg').innerHTML = menu(x, y);
-}) 
+})  */
 
 
 //every time lister to right click
@@ -187,15 +186,15 @@ function makeid(length) {
 //3 lists : 1 for apps, 2 for icons and 3 for titles on Desktop. If you chenage the array of lists the apps on desktop will be different
 var apps = ['terminal', 'bahoiImage', 'pcuvant', 'gta6', 'copilasii', 'ppe',
           'GChelutzu', 'iloveyou', 'varasimulator',  'credits','guide', 'empty', 'assets', 'PCuvantFolder', 'chelutzuFolder', 
-        "index", "chelutzu_assets", "ciordeala", "doriabi"];
+        "index", "chelutzu_assets", "ciordeala", "doriabi", 'str3su', 'bin'];
 
 var icons = ['terminal.png', 'image.png', 'pcuvant.png', 'gta.png', 'copilasii.png', 
           'image.png', 'mm.png', 'iloveyou.png', 'chelutzu.png','credits.png', 'manual.png', 'folder.png', 'folder.png', 'folder.png', 'folder.png', 
-        "html.png", "folder.png", "image.png", "image.png"];
+        "html.png", "folder.png", "image.png", "image.png", 'str3su.png', 'bin.png'];
 
 var titles = ['Terminal', 'Bahoi', 'jocul Khuvinthelor', 'gta', 'copilasii', 'prima poza ever cu un dinozaur',
               'M. M.', 'ILOVEYOU', 'vara simulator','Credits.txt',  'Guide', 'static', 'assets', 'PCuvant', 'chelutzu',  
-              'index.html', 'assets', 'ciordeala.png', "doriabi.png"]
+              'index.html', 'assets', 'ciordeala.png', "doriabi.png", 'PC BUILD', 'bin']
 
 //this for is used in lists, fetching content fron json and display every app, so we dom't have to write manually in html. Js will do
 
