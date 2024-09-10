@@ -30,10 +30,10 @@
         "appinfo" : "true",
         "title" : "Kuvinte cu Dahn Neegruø",
         "width" : 30,
-        "height" : 40,
+        "height" : 45,
         "backgroundColor" : "",
         "icon" : "pcuvant.png",
-        "content" : "<iframe style = 'height : 100%; width : 100%' src = 'PCuvant/index.html'></iframe>" 
+        "content" : "<iframe style = 'height : 100%; width : 100%' src = 'picnicCuvant/index.html'></iframe>" 
     },
     "gta6" : {
         "place" : "label2",
@@ -143,17 +143,17 @@
         "icon" : "manual.png",
         "content" : "<iframe src = 'str3su/index.html' class = 'h-100 w-100'></iframe>" 
     },
-    "bin" : {
+    "katalin" : {
         "place" : "label3",
         "path" : "ceav",
         "DesktopApp" : "true",
         "appinfo" : "true",
-        "title" : "Manual",
+        "title" : "BOMBA RACHETA TSUNAMI",
         "width" : 60,
         "height" : 40,
         "backgroundColor" : "white",
-        "icon" : "manual.png",
-        "content" : "<iframe src = 'str3su/index.html' class = 'h-100 w-100'></iframe>" 
+        "icon" : "katalin.png",
+        "content" : "<iframe src = 'katalin/index.html' class = 'h-100 w-100'></iframe>" 
     },
     
     "PCuvantFolder" : {
